@@ -1,0 +1,6 @@
+{
+  "name": "LF7 Marketing Digital e Automações",
+  "description": "Landing Page de alta conversão para a LF7 Marketing Digital e Automações, com simulador de CRM inteligente e calculadora de ROI em português do Brasil.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
