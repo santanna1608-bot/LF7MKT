@@ -286,11 +286,12 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden min-h-screen bg-[#0A0A0B] text-[#E5E5E5] font-sans">
-      {/* Dynamic Top Bar Accent - Elegant Gold Gradient */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-[#0F0F12]/90 backdrop-blur-md border-b border-[#1A1A1C]">
+        {/* Dynamic Top Bar Accent - Elegant Gold Gradient */}
+        <div className="h-1.5 w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
+        
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Logo / Brand */}
@@ -319,14 +320,14 @@ export default function Home() {
               href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#1A1A1C] bg-[#0A0A0B] hover:border-[#C5A059]/40 text-[#E5E5E5] hover:text-white rounded-none px-5 py-3 text-[11px] font-bold uppercase tracking-widest transition-all"
+              className="border border-[#1A1A1C] bg-[#0A0A0B] hover:border-[#C5A059]/40 text-[#E5E5E5] hover:text-white rounded-full px-5 py-3 text-[11px] font-bold uppercase tracking-widest transition-all"
               id="header-cta-secondary"
             >
               Falar com Especialista
             </a>
             <button 
               onClick={() => scrollTo('simulator')}
-              className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[11px] rounded-none px-5 py-3 transition-all hover:scale-[1.02]"
+              className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[11px] rounded-full px-5 py-3 transition-all hover:scale-[1.02]"
               id="header-cta"
             >
               Simular Negócio
@@ -391,13 +392,13 @@ export default function Home() {
                     href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-none py-3.5 text-center text-[10px] font-bold uppercase tracking-widest inline-block"
+                    className="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest inline-block"
                   >
                     Atendimento WhatsApp
                   </a>
                   <button 
                     onClick={() => { setMobileMenuOpen(false); scrollTo('simulator'); }}
-                    className="bg-[#C5A059] text-black rounded-none py-3.5 text-center text-[10px] font-bold uppercase tracking-widest"
+                    className="bg-[#C5A059] text-black rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest"
                   >
                     Iniciar Teste CRM IA
                   </button>
@@ -477,7 +478,7 @@ export default function Home() {
                 href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20gratuito!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#C5A059] hover:bg-[#D4AF37] text-black rounded-none px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-[#C5A059] hover:bg-[#D4AF37] text-black rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2"
                 id="hero-primary-cta"
               >
                 <span>Falar com especialista</span>
@@ -486,7 +487,7 @@ export default function Home() {
 
               <button 
                 onClick={() => scrollTo('simulator')}
-                className="w-full sm:w-auto bg-[#0F0F12] hover:bg-[#121215] text-[#E5E5E5] border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-none px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300"
+                className="w-full sm:w-auto bg-[#0F0F12] hover:bg-[#121215] text-[#E5E5E5] border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300"
                 id="hero-secondary-cta"
               >
                 <span>Testar Simulador de CRM</span>
@@ -524,7 +525,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Problema 1: Contatos Esfriando */}
-            <div className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">01</h3>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-3">Leads Esfriando no WhatsApp</h4>
@@ -535,10 +542,16 @@ export default function Home() {
               <div className="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Investimento em tráfego desperdiçado
               </div>
-            </div>
+            </motion.div>
 
             {/* Problema 2: Site sem Credibilidade */}
-            <div className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">02</h3>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-3">Sites Lentos e Obsoletos</h4>
@@ -549,10 +562,16 @@ export default function Home() {
               <div className="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
                 <Globe className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Perda de autoridade e credibilidade digital
               </div>
-            </div>
+            </motion.div>
 
             {/* Problema 3: Orçamento de Tráfego Queimado */}
-            <div className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+            >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">03</h3>
                 <h4 className="text-sm font-bold uppercase tracking-widest text-white mb-3">Verba Queimada em Anúncios</h4>
@@ -563,12 +582,18 @@ export default function Home() {
               <div className="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
                 <TrendingUp className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Equipe comercial sobrecarregada com curiosos
               </div>
-            </div>
+            </motion.div>
 
           </div>
 
           {/* LF7 Solution Banner */}
-          <div className="mt-16 bg-[#121215] border border-[#1A1A1C] p-8 sm:p-12 relative overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-16 bg-[#121215] border border-[#1A1A1C] p-8 sm:p-12 relative overflow-hidden"
+          >
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/5 rounded-full blur-3xl pointer-events-none"></div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
               <div className="lg:col-span-8">
@@ -591,128 +616,41 @@ export default function Home() {
                 </button>
               </div>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
 
       {/* 3. Nossos Serviços */}
       <section id="servicos" className="py-24 bg-gradient-to-b from-[#0A0A0B] via-[#121215] to-[#0A0A0B] border-b border-[#1A1A1C] relative overflow-hidden">
-        {/* Dynamic & Highly Visible Laser Network Background */}
+        {/* Subtle, Static, Premium Grid Background with Soft Ambient Gold Glows */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <svg className="absolute w-full h-full opacity-70" xmlns="http://www.w3.org/2000/svg">
+          <svg className="absolute w-full h-full opacity-35" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              {/* Laser Glow Effect Filter */}
-              <filter id="laserGlow" x="-50%" y="-50%" width="200%" height="200%">
-                <feGaussianBlur stdDeviation="3" result="blur1" />
-                <feGaussianBlur stdDeviation="8" result="blur2" />
-                <feMerge>
-                  <feMergeNode in="blur2" />
-                  <feMergeNode in="blur1" />
-                  <feMergeNode in="SourceGraphic" />
-                </feMerge>
-              </filter>
-
-              <linearGradient id="laserGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#C5A059" stopOpacity="0" />
-                <stop offset="40%" stopColor="#D4AF37" stopOpacity="0.9" />
-                <stop offset="60%" stopColor="#E5C384" stopOpacity="0.9" />
-                <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
-              </linearGradient>
-
-              <linearGradient id="laserGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#886221" stopOpacity="0" />
-                <stop offset="30%" stopColor="#C5A059" stopOpacity="0.85" />
-                <stop offset="70%" stopColor="#D4AF37" stopOpacity="0.85" />
-                <stop offset="100%" stopColor="#C5A059" stopOpacity="0" />
-              </linearGradient>
-
-              <linearGradient id="radialLaser" x1="0%" y1="50%" x2="100%" y2="50%">
-                <stop offset="0%" stopColor="#D4AF37" stopOpacity="0" />
-                <stop offset="50%" stopColor="#E5C384" stopOpacity="0.95" />
-                <stop offset="100%" stopColor="#886221" stopOpacity="0" />
-              </linearGradient>
+              {/* Premium Subtle Grid Pattern */}
+              <pattern id="premiumGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#C5A059" strokeWidth="0.5" strokeOpacity="0.08" />
+              </pattern>
             </defs>
-
-            {/* Custom Embedded Scoped Keyframe Animations */}
-            <style>{`
-              @keyframes laserFrequencyPulse {
-                0%, 100% { opacity: 0.5; stroke-width: 1.5px; }
-                50% { opacity: 1; stroke-width: 3.5px; }
-              }
-              @keyframes laserBeamSweep1 {
-                0% { transform: translateY(-20%) rotate(0deg); }
-                50% { transform: translateY(20%) rotate(3deg); }
-                100% { transform: translateY(-20%) rotate(0deg); }
-              }
-              @keyframes laserBeamSweep2 {
-                0% { transform: translateX(-10%) rotate(0deg); }
-                50% { transform: translateX(10%) rotate(-3deg); }
-                100% { transform: translateX(-10%) rotate(0deg); }
-              }
-              @keyframes coordinateFlow {
-                0% { stroke-dashoffset: 80; }
-                100% { stroke-dashoffset: 0; }
-              }
-              @keyframes scannerPulse {
-                0%, 100% { r: 160px; stroke-opacity: 0.15; }
-                50% { r: 180px; stroke-opacity: 0.4; }
-              }
-              .laser-anim-sweep1 {
-                animation: laserFrequencyPulse 3.5s ease-in-out infinite, laserBeamSweep1 10s ease-in-out infinite;
-                transform-origin: center;
-              }
-              .laser-anim-sweep2 {
-                animation: laserFrequencyPulse 4.5s ease-in-out infinite, laserBeamSweep2 12s ease-in-out infinite;
-                transform-origin: center;
-              }
-              .laser-coordinate-grid {
-                stroke-dasharray: 8 16;
-                animation: coordinateFlow 6s linear infinite;
-              }
-              .laser-main-axis {
-                stroke-dasharray: 100 200;
-                animation: coordinateFlow 12s linear infinite;
-              }
-              .laser-scanner-reticle {
-                animation: scannerPulse 4s ease-in-out infinite;
-              }
-            `}</style>
+            {/* Fill the pattern */}
+            <rect width="100%" height="100%" fill="url(#premiumGrid)" />
             
-            {/* Highly visible laser coordinate lines with dynamic flow */}
-            <g stroke="#C5A059" strokeWidth="0.75" strokeOpacity="0.25">
-              <line x1="0" y1="10%" x2="100%" y2="10%" className="laser-coordinate-grid" />
-              <line x1="0" y1="30%" x2="100%" y2="30%" className="laser-coordinate-grid" style={{ animationDirection: 'reverse', animationDuration: '8s' }} />
-              <line x1="0" y1="50%" x2="100%" y2="50%" className="laser-coordinate-grid" />
-              <line x1="0" y1="70%" x2="100%" y2="70%" className="laser-coordinate-grid" style={{ animationDirection: 'reverse', animationDuration: '10s' }} />
-              <line x1="0" y1="90%" x2="100%" y2="90%" className="laser-coordinate-grid" />
+            {/* Elegant static diagonal laser lines without blur filters or animations */}
+            <g stroke="#C5A059" strokeWidth="0.75" strokeOpacity="0.12">
+              <line x1="0" y1="10%" x2="100%" y2="10%" />
+              <line x1="0" y1="50%" x2="100%" y2="50%" />
+              <line x1="0" y1="90%" x2="100%" y2="90%" />
             </g>
-
-            {/* Glowing Main Laser Beams with dynamic sweeps and pulse frequency */}
-            <line x1="0" y1="20%" x2="100%" y2="80%" stroke="url(#laserGrad1)" strokeWidth="2.5" filter="url(#laserGlow)" className="laser-anim-sweep1" />
-            <line x1="100%" y1="10%" x2="0%" y2="90%" stroke="url(#laserGrad2)" strokeWidth="2.5" filter="url(#laserGlow)" className="laser-anim-sweep2" />
             
-            {/* Cross cutting telemetry beams with active sweep response */}
-            <line x1="15%" y1="0%" x2="85%" y2="100%" stroke="url(#laserGrad1)" strokeWidth="1.5" filter="url(#laserGlow)" className="laser-anim-sweep2" />
-            <line x1="85%" y1="0%" x2="15%" y2="100%" stroke="url(#laserGrad2)" strokeWidth="1.5" filter="url(#laserGlow)" className="laser-anim-sweep1" />
-            
-            <line x1="0%" y1="45%" x2="100%" y2="55%" stroke="url(#radialLaser)" strokeWidth="2" filter="url(#laserGlow)" className="laser-main-axis" />
-            
-            {/* High-tech Target Reticle with rotations and pulsating rays */}
-            <circle cx="50%" cy="50%" r="160" fill="none" stroke="#C5A059" strokeWidth="1" strokeOpacity="0.25" strokeDasharray="5 20" filter="url(#laserGlow)" className="animate-[spin_40s_linear_infinite] laser-scanner-reticle" />
-            <circle cx="50%" cy="50%" r="80" fill="none" stroke="#D4AF37" strokeWidth="0.75" strokeOpacity="0.3" strokeDasharray="2 10" className="animate-[spin_20s_linear_infinite_reverse]" />
-            
-            {/* Active glowing nodes */}
-            <circle cx="21%" cy="21%" r="5" fill="#D4AF37" className="animate-ping" style={{ animationDuration: '3s' }} />
-            <circle cx="21%" cy="21%" r="3.5" fill="#E5C384" />
-            
-            <circle cx="79%" cy="79%" r="5" fill="#D4AF37" className="animate-ping" style={{ animationDuration: '4.5s' }} />
-            <circle cx="79%" cy="79%" r="3.5" fill="#E5C384" />
-
-            <circle cx="50%" cy="50%" r="4" fill="#C5A059" className="animate-pulse" />
+            {/* Soft, beautiful vector glow highlights (Static & Lightweight) */}
+            <circle cx="20%" cy="30%" r="200" fill="#C5A059" fillOpacity="0.03" />
+            <circle cx="80%" cy="70%" r="220" fill="#E5C384" fillOpacity="0.02" />
           </svg>
-          {/* Subtle light center radial glow */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.12)_0%,transparent_60%)] pointer-events-none" />
+          
+          {/* Hardware-accelerated CSS gold radial gradients for luxury depth */}
+          <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.06)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(229,195,132,0.04)_0%,transparent_70%)] pointer-events-none" />
+          <div className="absolute top-[40%] left-[45%] w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.08)_0%,transparent_60%)] pointer-events-none" />
         </div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -730,7 +668,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             
             {/* Pilar 1: WhatsApp IA */}
-            <div className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+            >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
                   01
@@ -760,10 +704,16 @@ export default function Home() {
                 <Zap className="h-4 w-4 text-[#C5A059] fill-[#C5A059]/20" />
                 <span>BENEFÍCIO: Abordagem instantânea que elimina o tempo de resposta lento</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Pilar 2: Criação de Sites */}
-            <div className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+            >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
                   02
@@ -793,10 +743,16 @@ export default function Home() {
                 <Zap className="h-4 w-4 text-[#C5A059] fill-[#C5A059]/20" />
                 <span>BENEFÍCIO: Máxima credibilidade digital instantânea corporativa</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Pilar 3: Gestão de Tráfego */}
-            <div className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+            >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
                   03
@@ -826,7 +782,7 @@ export default function Home() {
                 <Zap className="h-4 w-4 text-[#C5A059] fill-[#C5A059]/20" />
                 <span>BENEFÍCIO: Escoamento de leads refinados com intenção real de compra</span>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -852,17 +808,17 @@ export default function Home() {
             
             {/* Interactive Tab Controls */}
             <div className="flex justify-center">
-              <div className="bg-[#121215] p-1.5 rounded-none border border-[#1A1A1C] flex gap-2">
+              <div className="bg-[#121215] p-1.5 rounded-full border border-[#1A1A1C] flex gap-2">
                 <button 
                   onClick={() => scrollTo('simulator')}
-                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-none px-6 py-3 flex items-center gap-2 transition-all shadow-md"
+                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-full px-6 py-3 flex items-center gap-2 transition-all shadow-md"
                   id="tab-btn-sim"
                 >
                   <Bot className="h-3.5 w-3.5" /> 1. Simulador de CRM Inteligente
                 </button>
                 <button 
                   onClick={() => scrollTo('roi-calculator')}
-                  className="hover:text-white text-[#A1A1AA] font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-none px-6 py-3 flex items-center gap-2 transition-all"
+                  className="hover:text-white text-[#A1A1AA] font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-full px-6 py-3 flex items-center gap-2 transition-all"
                   id="tab-btn-roi"
                 >
                   <DollarSign className="h-3.5 w-3.5 text-[#C5A059]" /> 2. Calculadora de ROI
@@ -874,7 +830,14 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
               
               {/* Simulated Live CRM UI (Português de Brasil) */}
-              <div id="simulator" className="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8 relative">
+              <motion.div 
+                id="simulator" 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8 relative"
+              >
                 
                 {/* Header of CRM widget */}
                 <div className="flex items-center justify-between border-b border-[#1A1A1C] pb-6 mb-6">
@@ -891,7 +854,7 @@ export default function Home() {
                   {simulationStep > 0 && (
                     <button 
                       onClick={resetSimulator}
-                      className="text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[10px] font-bold py-1.5 px-3 border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-none transition-all uppercase tracking-wider font-mono bg-[#0F0F12]"
+                      className="text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[10px] font-bold py-1.5 px-4 border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-full transition-all uppercase tracking-wider font-mono bg-[#0F0F12]"
                     >
                       <RotateCcw className="h-3 w-3" /> Reiniciar
                     </button>
@@ -913,7 +876,7 @@ export default function Home() {
                         required
                         value={simulatorCompany}
                         onChange={(e) => setSimulatorCompany(e.target.value)}
-                        className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-none px-4 py-3.5 text-sm text-white focus:outline-none focus:ring-1 focus:ring-[#C5A059]/50 transition-all"
+                        className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none focus:ring-1 focus:ring-[#C5A059]/50 transition-all"
                       />
                     </div>
 
@@ -923,7 +886,7 @@ export default function Home() {
                         <select 
                           value={simulatorSegment} 
                           onChange={(e) => setSimulatorSegment(e.target.value)}
-                          className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-none px-4 py-3.5 text-sm text-white focus:outline-none transition-all cursor-pointer"
+                          className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none transition-all cursor-pointer"
                         >
                           {segments.map(seg => (
                             <option key={seg.id} value={seg.id} className="bg-[#121215] text-white">{seg.icon} {seg.name}</option>
@@ -938,14 +901,14 @@ export default function Home() {
                           placeholder="Ex: Contatos frios, sem vendas..."
                           value={simulatorChallenges}
                           onChange={(e) => setSimulatorChallenges(e.target.value)}
-                          className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-none px-4 py-3.5 text-sm text-white focus:outline-none transition-all"
+                          className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none transition-all"
                         />
                       </div>
                     </div>
 
                     <button 
                       type="submit"
-                      className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-none text-center flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-widest"
+                      className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-widest"
                       id="submit-simular"
                     >
                       <Play className="h-4 w-4 fill-black text-black" /> Construir Estratégia de IA
@@ -1065,7 +1028,7 @@ export default function Home() {
                         </p>
                         <button 
                           onClick={() => scrollTo('form-leads')}
-                          className="mt-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-none text-[10px] tracking-widest uppercase transition-all"
+                          className="mt-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-full text-[10px] tracking-widest uppercase transition-all"
                         >
                           Agendar Diagnóstico Gratuito 📲
                         </button>
@@ -1074,10 +1037,17 @@ export default function Home() {
 
                   </div>
                 )}
-              </div>
+              </motion.div>
 
-              {/* Simulated ROI Calculator inside B2B Portuguese */}
-              <div id="roi-calculator" className="lg:col-span-5 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8">
+               {/* Simulated ROI Calculator inside B2B Portuguese */}
+              <motion.div 
+                id="roi-calculator" 
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                className="lg:col-span-5 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8"
+              >
                 <div className="flex items-center gap-2 mb-4">
                   <DollarSign className="h-5 w-5 text-[#C5A059]" />
                   <h3 className="text-lg font-serif text-white">Calculadora Comercial</h3>
@@ -1181,7 +1151,7 @@ export default function Home() {
                   </div>
 
                 </div>
-              </div>
+              </motion.div>
 
             </div>
 
@@ -1202,37 +1172,61 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             
-            <div className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+            >
               <span className="text-3xl text-[#C5A059] block mb-5">👁️</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Visão 360 do Funil</h4>
               <p className="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                 Analisamos e integramos desde a segmentação de anúncios até o carregamento do site de alta performance, roteiro de WhatsApp e agendamento CRM de vendas estruturado.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+            >
               <span className="text-3xl text-[#C5A059] block mb-5">🤖</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Higienização Inteligente</h4>
               <p className="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                 Oferecemos conexões nativas com CRM líderes de mercado do Brasil (RD Station, ActiveCampaign, HubSpot). Seus dados entram qualificados, pré-triados e estruturados.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+            >
               <span className="text-3xl text-[#C5A059] block mb-5">⚡</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Velocidade Crítica</h4>
               <p className="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                 Nossos códigos minimizam o tempo de download eliminando sobrecargas. Menor lentidão significa melhor custo de conversão por anúncio digital nas plataformas.
               </p>
-            </div>
+            </motion.div>
 
-            <div className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300">
+            <motion.div 
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+            >
               <span className="text-3xl text-[#C5A059] block mb-5">📈</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Tom de Voz Corporativo</h4>
               <p className="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
                 Desenhamos robôs customizados que usam linguagem refinada, empática e estritamente educada. Adequamos os prompts de acordo com o padrão do seu público alvo.
               </p>
-            </div>
+            </motion.div>
 
           </div>
 
@@ -1259,7 +1253,7 @@ export default function Home() {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
                 }}
-                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center transition-all cursor-pointer hover:bg-[#121215]"
+                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all cursor-pointer hover:bg-[#121215]"
                 aria-label="Depoimento Anterior"
                 id="btn-prev-testimonial"
               >
@@ -1270,7 +1264,7 @@ export default function Home() {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
                 }}
-                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center transition-all cursor-pointer hover:bg-[#121215]"
+                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all cursor-pointer hover:bg-[#121215]"
                 aria-label="Próximo Depoimento"
                 id="btn-next-testimonial"
               >
@@ -1379,7 +1373,7 @@ export default function Home() {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial(idx);
                 }}
-                className={`h-2.5 transition-all duration-300 rounded-none cursor-pointer ${
+                className={`h-2.5 transition-all duration-300 rounded-full cursor-pointer ${
                   currentTestimonial === idx 
                     ? 'w-8 bg-gradient-to-r from-[#C5A059] to-[#E5C384]' 
                     : 'w-2.5 bg-[#1A1A1C] hover:bg-[#71717A]/40'
@@ -1406,8 +1400,12 @@ export default function Home() {
 
           <div className="space-y-4">
             {faqItems.map((item, idx) => (
-              <div 
+              <motion.div 
                 key={idx} 
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
                 className="bg-[#121215] border border-[#1A1A1C] rounded-none overflow-hidden transition-all duration-300"
               >
                 <button 
@@ -1433,7 +1431,7 @@ export default function Home() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-              </div>
+              </motion.div>
             ))}
           </div>
 
@@ -1456,7 +1454,13 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-[#0F0F12] border border-[#1A1A1C] p-8 sm:p-12 rounded-none max-w-2xl mx-auto text-center relative overflow-hidden">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.98, y: 15 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="bg-[#0F0F12] border border-[#1A1A1C] p-8 sm:p-12 rounded-none max-w-2xl mx-auto text-center relative overflow-hidden"
+          >
             {/* Elegant top line gold accent */}
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
 
@@ -1473,7 +1477,7 @@ export default function Home() {
                 href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20meu%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20e%20CRM%20gratuito!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold py-5 rounded-none text-center flex items-center justify-center gap-3 transition-all tracking-widest text-xs uppercase duration-350"
+                className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold py-5 rounded-full text-center flex items-center justify-center gap-3 transition-all tracking-widest text-xs uppercase duration-350"
                 id="footer-card-cta"
               >
                 <MessageSquare className="h-4 w-4 fill-black text-black shrink-0" /> Agendar Via WhatsApp
@@ -1483,7 +1487,7 @@ export default function Home() {
                 Sem compromisso • Diagnóstico conduzido diretamente em 15 minutos na nossa sala virtual
               </p>
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </section>
@@ -1668,7 +1672,7 @@ export default function Home() {
                 <div className="mt-8 flex justify-end">
                   <button
                     onClick={() => setIsPrivacyOpen(false)}
-                    className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold uppercase tracking-widest text-[10px] py-4 px-8 rounded-none transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                    className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold uppercase tracking-widest text-[10px] py-4 px-8 rounded-full transition-all duration-300 cursor-pointer hover:scale-[1.02]"
                   >
                     Fechar Termo
                   </button>
@@ -1779,7 +1783,7 @@ export default function Home() {
                 <div className="mt-8 flex justify-end">
                   <button
                     onClick={() => setIsTermsOpen(false)}
-                    className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold uppercase tracking-widest text-[10px] py-4 px-8 rounded-none transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+                    className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold uppercase tracking-widest text-[10px] py-4 px-8 rounded-full transition-all duration-300 cursor-pointer hover:scale-[1.02]"
                   >
                     Aceitar e Fechar
                   </button>
