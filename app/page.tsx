@@ -288,7 +288,7 @@ export default function Home() {
     <div className="overflow-x-hidden min-h-screen bg-[#0A0A0B] text-[#E5E5E5] font-sans">
 
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-[#0F0F12]/90 backdrop-blur-md border-b border-[#1A1A1C]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0F0F12]/90 backdrop-blur-md border-b border-[#1A1A1C]">
         {/* Dynamic Top Bar Accent - Elegant Gold Gradient */}
         <div className="h-1.5 w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
         
@@ -410,7 +410,7 @@ export default function Home() {
       </header>
 
       {/* 1. Hero Section */}
-      <section id="hero" className="relative pt-12 pb-24 md:pt-24 md:pb-32 overflow-hidden border-b border-[#1A1A1C]">
+      <section id="hero" className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden border-b border-[#1A1A1C]">
         {/* Background Video */}
         <video
           autoPlay
