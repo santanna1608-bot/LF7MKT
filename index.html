@@ -1,0 +1,1986 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LF7 Marketing & Inteligência Artificial | Ecossistemas de Vendas</title>
+  <meta name="description" content="Escale sua conversão e recupere leads B2B no piloto automático com Funcionários IA e sites de elite de alta velocidade.">
+  
+  <!-- Tailwind CSS v3 CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Cinzel:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Styling & Typography System */
+    html, body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    .font-brand {
+      font-family: 'Cinzel', serif;
+    }
+    
+    /* Hardware Accelerated Scroll Reveal Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: transform, opacity;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    
+    /* Stagger Delays */
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+    .delay-400 { transition-delay: 400ms; }
+    
+    /* Custom Luxury Gold Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0A0A0B;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A059;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #E5C384;
+    }
+
+    /* Slider styling custom overrides */
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      background: #C5A059;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+      transition: transform 0.1s ease;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.3);
+    }
+    
+    /* Animation classes for numbers pop */
+    @keyframes pop {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.04); opacity: 1; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .num-pop {
+      animation: pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+  </style>
+</head>
+<body class="overflow-x-hidden min-h-screen bg-[#0A0A0B] text-[#E5E5E5]">
+
+  <!-- Top Accent & Header -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-[#0F0F12]/90 backdrop-blur-md border-b border-[#1A1A1C]">
+    <div class="h-1.5 w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <div onclick="scrollToSection('hero')" class="flex items-center gap-3 cursor-pointer group transition-all duration-300 active:scale-95">
+        <div class="h-9 w-9 bg-[#C5A059] flex items-center justify-center font-bold text-black text-xs tracking-wider transition-colors duration-300 group-hover:bg-[#D4AF37]">
+          LF7
+        </div>
+        <div class="flex flex-col">
+          <span class="text-white font-extrabold text-base leading-none tracking-tight">LF7</span>
+          <span class="text-[#C5A059] font-medium text-[9px] tracking-[0.18em] uppercase mt-0.5">Marketing & IA</span>
+        </div>
+      </div>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-8 uppercase text-[11px] tracking-widest text-[#A1A1AA]">
+        <button onclick="scrollToSection('pas-section')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Dores do Mercado</button>
+        <button onclick="scrollToSection('servicos')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Serviços</button>
+        <button onclick="scrollToSection('criacao-sites')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Sites de Elite</button>
+        <button onclick="scrollToSection('simulator-section')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Testar CRM IA</button>
+        <button onclick="scrollToSection('roi-calculator-section')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Calcular ROI</button>
+        <button onclick="scrollToSection('faq')" class="hover:text-[#C5A059] transition-colors cursor-pointer active:scale-95 duration-150">Dúvidas</button>
+      </nav>
+
+      <!-- Header CTAs -->
+      <div class="hidden md:flex items-center gap-4">
+        <a href="https://wa.me/5521981062423?text=Olá,%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!" 
+           target="_blank" rel="noopener noreferrer"
+           class="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-full px-5 py-3 text-[11px] font-bold uppercase tracking-widest transition-all duration-300 hover:scale-105 active:scale-95 hover:border-[#C5A059]/40">
+          Falar com Especialista
+        </a>
+        <button onclick="scrollToSection('simulator-section')" 
+                class="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[11px] rounded-full px-5 py-3 transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_15px_rgba(197,160,89,0.3)] cursor-pointer">
+          Simular Negócio
+        </button>
+      </div>
+
+      <!-- Mobile Hamburger Icon -->
+      <div class="md:hidden">
+        <button onclick="toggleMobileMenu()" class="text-[#A1A1AA] hover:text-white p-2 focus:outline-none cursor-pointer active:scale-90" aria-label="Menu">
+          <svg id="menu-icon-open" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg id="menu-icon-close" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="hidden md:hidden bg-[#0F0F12] border-b border-[#1A1A1C] transition-all duration-300">
+      <div class="px-4 pt-2 pb-6 space-y-3 flex flex-col uppercase text-[10px] tracking-widest text-[#A1A1AA]">
+        <button onclick="handleMobileNavClick('pas-section')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Dores do Mercado</button>
+        <button onclick="handleMobileNavClick('servicos')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Serviços</button>
+        <button onclick="handleMobileNavClick('criacao-sites')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Sites de Elite</button>
+        <button onclick="handleMobileNavClick('simulator-section')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Testar CRM IA</button>
+        <button onclick="handleMobileNavClick('roi-calculator-section')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Calcular ROI</button>
+        <button onclick="handleMobileNavClick('faq')" class="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] w-full">Dúvidas</button>
+        <div class="pt-4 flex flex-col gap-3">
+          <a href="https://wa.me/5521981062423?text=Olá,%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!" 
+             target="_blank" rel="noopener noreferrer"
+             class="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest inline-block">
+            Atendimento WhatsApp
+          </a>
+          <button onclick="handleMobileNavClick('simulator-section')" 
+                  class="bg-[#C5A059] text-black rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest w-full font-bold">
+            Iniciar Teste CRM IA
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- 1. Hero Section -->
+  <section id="hero" class="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden border-b border-[#1A1A1C]">
+    
+    <!-- Background Video with Zoom-out effect on load -->
+    <div class="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none overflow-hidden">
+      <video autoplay loop muted playsinline class="w-full h-full object-cover scale-[1.08] transition-transform duration-[1600ms] ease-out" id="hero-bg-video">
+        <source src="https://res.cloudinary.com/dq3cmyhmo/video/upload/v1779901029/Desloque_imagem_para_direita_202605271230_njlazn.mp4" type="video/mp4">
+      </video>
+    </div>
+    
+    <!-- Video opacity filter -->
+    <div class="absolute inset-0 bg-[#0A0A0B]/60 z-0 pointer-events-none"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5A059]/5 rounded-full blur-[140px] pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="text-left max-w-4xl mr-auto">
+        
+        <!-- Premium Floating Badge -->
+        <div class="inline-flex items-center gap-2 bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 rounded-full px-4 py-1.5 mb-8 shadow-inner animate-pulse">
+          <div class="w-1.5 h-1.5 rounded-full bg-[#C5A059]"></div>
+          <span class="text-[10px] sm:text-xs font-bold uppercase tracking-[0.18em]">
+            ARQUITETURA DE ALTA CONVERSÃO B2B
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] mb-6 reveal active delay-100">
+          <span class="text-[#C5A059]">Escale</span> sua conversão e recupere leads no <span class="text-[#C5A059] italic font-normal">Piloto Automático.</span>
+        </h1>
+
+        <!-- Subheading -->
+        <p class="text-[#A1A1AA] text-base sm:text-lg md:text-xl font-light mb-12 max-w-3xl leading-relaxed reveal active delay-200">
+          Diga adeus ao vazamento de recursos. Construímos <strong class="text-white font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em 3 segundos, integrando sites de elite e campanhas corporativas focadas em ROI.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 max-w-md sm:max-w-none reveal active delay-300">
+          <a href="https://wa.me/5521981062423?text=Olá,%20gostaria%20de%20fazer%20um%20diagnóstico%20de%20automação%20gratuito!" 
+             target="_blank" rel="noopener noreferrer"
+             class="group w-full sm:w-auto bg-[#C5A059] hover:bg-[#D4AF37] text-black rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 transition-all duration-300 hover:scale-105 active:scale-95">
+            <span>Falar com especialista</span>
+            <svg class="h-4 w-4 text-black transform transition-transform duration-300 group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+
+          <button onclick="scrollToSection('simulator-section')" 
+                  class="w-full sm:w-auto bg-[#0F0F12] text-[#E5E5E5] border border-[#1A1A1C] rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300 hover:scale-105 active:scale-95 hover:border-[#C5A059]/40 hover:bg-[#121215]">
+            <span>Testar Simulador de CRM</span>
+          </button>
+        </div>
+
+        <!-- Trust tags -->
+        <div class="mt-20 pt-12 border-t border-[#1A1A1C] flex flex-wrap justify-start items-center gap-x-6 sm:gap-x-12 gap-y-4 sm:gap-y-6 text-[#D4D4D8] hover:text-white transition-colors duration-300 font-mono text-[10px] tracking-[0.25em] reveal active delay-400">
+          <span>✨ CONVERSÃO DE ELITE</span>
+          <span>⚡ ATENDIMENTO EM 3 SEGUNDOS</span>
+          <span>🛠️ ARQUITETURA PERSUASIVA</span>
+          <span>🔒 FLUXOS OFICIAIS WHATSAPP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. PAS Problem Section -->
+  <section id="pas-section" class="py-24 bg-[#0F0F12] border-b border-[#1A1A1C] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-3">Dores de Mercado (PAS)</h2>
+        <p class="text-3xl sm:text-4xl font-serif font-light text-white tracking-tight leading-snug">
+          Sua equipe perde vendas por gargalos invisíveis?
+        </p>
+      </div>
+
+      <!-- Problem Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Pain Point 1 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-100 rounded-xl">
+          <div>
+            <h3 class="text-[#C5A059] font-serif italic text-2xl mb-4">01</h3>
+            <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-3">Leads Esfriando no WhatsApp</h4>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Se um investidor ou cliente em potencial entra em contato e você demora mais de 5 minutos para responder, a chance de qualificação cai em <strong class="text-[#C5A059] font-semibold">391%</strong>. No mercado atual, a concorrência engole quem responde devagar.
+            </p>
+          </div>
+          <div class="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
+            <svg class="h-3.5 w-3.5 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg> AGITAÇÃO: Investimento em tráfego desperdiçado
+          </div>
+        </div>
+
+        <!-- Pain Point 2 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-200 rounded-xl">
+          <div>
+            <h3 class="text-[#C5A059] font-serif italic text-2xl mb-4">02</h3>
+            <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-3">Sites Lentos e Obsoletos</h4>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Sua empresa possui apenas um site institucional ultrapassado ou uma página lenta que não passa profissionalismo? Clientes exigentes procuram segurança corporativa. Site lento é sinônimo de prejuízo imediato.
+            </p>
+          </div>
+          <div class="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
+            <svg class="h-3.5 w-3.5 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+            </svg> AGITAÇÃO: Perda de autoridade e credibilidade digital
+          </div>
+        </div>
+
+        <!-- Pain Point 3 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-300 rounded-xl">
+          <div>
+            <h3 class="text-[#C5A059] font-serif italic text-2xl mb-4">03</h3>
+            <h4 class="text-sm font-bold uppercase tracking-widest text-white mb-3">Verba Queimada em Anúncios</h4>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Fazer anúncios simples direcionados ao WhatsApp sem ter uma estratégia sólida de conversão e qualificação prévia é queimar dinheiro. Você recebe dezenas de curiosos querendo apenas o preço e sobrecarrega seu time.
+            </p>
+          </div>
+          <div class="border-t border-[#1A1A1C] pt-4 text-[10px] font-mono text-[#71717A] uppercase tracking-wider flex items-center gap-1.5">
+            <svg class="h-3.5 w-3.5 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+            </svg> AGITAÇÃO: Equipe comercial sobrecarregada com curiosos
+          </div>
+        </div>
+
+      </div>
+
+      <!-- LF7 Solution Block -->
+      <div class="mt-16 bg-[#121215] border border-[#1A1A1C] p-8 sm:p-12 relative overflow-hidden transition-all duration-300 hover:border-[#C5A059]/25 reveal rounded-xl">
+        <div class="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/5 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+          <div class="lg:col-span-8">
+            <span class="text-[#C5A059] font-bold font-mono text-[9px] uppercase tracking-widest bg-[#C5A059]/10 border border-[#C5A059]/30 px-3 py-1 rounded-full inline-block mb-4">
+              A Solução Definitiva
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-serif font-light text-white mb-4 leading-tight">
+              Como a LF7 resolve de ponta a ponta
+            </h3>
+            <p class="text-[#A1A1AA] text-sm leading-relaxed">
+              Não criamos apenas sites ou anúncios soltos. Implementamos um <strong class="text-white font-semibold">Ecossistema Completo de Vendas Automatizadas</strong>. Construímos campanhas de anúncios persuasivas que atraem clientes com alta intenção de compra, encaminhamos para sites de elite ultrarrápidos e qualificamos cada contato instantaneamente com Inteligência Artificial, agendando reuniões diretamente na sua agenda comercial.
+            </p>
+          </div>
+          <div class="lg:col-span-4 flex justify-start lg:justify-end">
+            <button onclick="scrollToSection('simulator-section')" 
+                    class="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-xs py-4 px-8 w-full lg:w-fit transition-all duration-300 hover:scale-105 active:scale-95 hover:shadow-[0_0_15px_rgba(197,160,89,0.3)] cursor-pointer">
+              Ver LF7 na Prática &rarr;
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 3. Nossos Serviços -->
+  <section id="servicos" class="py-24 bg-gradient-to-b from-[#0A0A0B] via-[#121215] to-[#0A0A0B] border-b border-[#1A1A1C] relative overflow-hidden">
+    
+    <!-- Premium subtle background decoration grid -->
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <svg class="absolute w-full h-full opacity-35" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <pattern id="premiumGrid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#C5A059" stroke-width="0.5" stroke-opacity="0.08" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#premiumGrid)" />
+      </svg>
+      <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.06)_0%,transparent_70%)]"></div>
+      <div class="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-[radial-gradient(circle_at_center,rgba(229,195,132,0.04)_0%,transparent_70%)]"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-3">Especialidades B2B</h2>
+        <p class="text-3xl sm:text-5xl font-serif font-light text-white tracking-tight leading-tight">
+          Nossos 3 Pilares de Tração Comercial
+        </p>
+        <p class="text-[#A1A1AA] text-sm sm:text-base font-light mt-4">
+          Engenharia estratégica desenhada para converter desconhecidos em reuniões comerciais qualificadas.
+        </p>
+      </div>
+
+      <!-- Pillars Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-100 rounded-xl">
+          <div>
+            <div class="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
+              01
+            </div>
+            <h3 class="text-xl font-serif text-white mb-4">
+              Automação & Funcionários IA no WhatsApp
+            </h3>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Criamos e integramos agentes baseados em IA que representam a sua empresa exatamente como um consultor humano faria. Eles funcionam 24 horas por dia qualificando os leads, quebrando dúvidas frequentes e agendando reuniões.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Tempo de resposta inferior a 3 segundos</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Triagem inteligente de leads frios e quentes</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Conexão direta com seu sistema de agendamento comercial</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-[#121215] border border-[#1A1A1C] p-4 text-[10px] font-mono uppercase tracking-wider text-[#C5A059] flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#C5A059]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+            </svg>
+            <span>BENEFÍCIO: Abordagem instantânea que elimina o tempo de resposta lento</span>
+          </div>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-200 rounded-xl">
+          <div>
+            <div class="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
+              02
+            </div>
+            <h3 class="text-xl font-serif text-white mb-4">
+              Páginas & Landing Pages de Elite
+            </h3>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Criamos páginas comerciais com foco obsessivo em conversão de audiência qualificada. Desenvolvemos com códigos limpos estruturados para serem rápidos, responsivos, com excelente SEO e com gatilhos persuasivos de design.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Performance nota 95+ no Google PageSpeed</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Arquitetura de conteúdo persuasiva (Copywriting B2B)</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Design conceitual e alta adaptabilidade de telas</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-[#121215] border border-[#1A1A1C] p-4 text-[10px] font-mono uppercase tracking-wider text-[#C5A059] flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#C5A059]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+            </svg>
+            <span>BENEFÍCIO: Máxima credibilidade digital instantânea corporativa</span>
+          </div>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_20px_30px_rgba(197,160,89,0.05)] reveal delay-300 rounded-xl">
+          <div>
+            <div class="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
+              03
+            </div>
+            <h3 class="text-xl font-serif text-white mb-4">
+              Gestão de Tráfego de Alta Performance
+            </h3>
+            <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed mb-6">
+              Anúncios direcionados ao seu cliente ideal no Google, Instagram e Facebook Ads. Planejamos campanhas de funis de médio a alto ticket que garantem que sua marca apareça para quem realmente quer assinar seu contrato hoje.
+            </p>
+            <ul class="space-y-3 mb-8">
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Otimização científica do custo por Lead qualificado</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Métricas financeiras reais e rastreáveis na ponta</span>
+              </li>
+              <li class="flex items-start gap-2.5 text-neutral-300 text-xs sm:text-sm">
+                <svg class="h-4 w-4 text-[#C5A059] mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Escala segura baseada em dados reais</span>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-[#121215] border border-[#1A1A1C] p-4 text-[10px] font-mono uppercase tracking-wider text-[#C5A059] flex items-center gap-2">
+            <svg class="h-4 w-4 text-[#C5A059]" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd" />
+            </svg>
+            <span>BENEFÍCIO: Escoamento de leads refinados com intenção real de compra</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Criação de Sites de Elite Section -->
+  <section id="criacao-sites" class="py-24 bg-gradient-to-b from-[#0A0A0B] via-[#121215] to-[#0A0A0B] border-b border-[#1A1A1C] relative overflow-hidden">
+    <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+      <div class="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_60%)]"></div>
+      <div class="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(229,195,132,0.03)_0%,transparent_60%)]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        
+        <!-- Text content -->
+        <div class="lg:col-span-5 text-left reveal">
+          <span class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-4 block">
+            Engenharia Web de Alta Conversão
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-serif font-light text-white tracking-tight leading-tight mb-6">
+            Desenvolvemos <span class="text-[#C5A059] italic font-normal">Sites de Elite</span> que vendem 24h por dia.
+          </h2>
+          <p class="text-[#A1A1AA] text-sm sm:text-base font-light leading-relaxed mb-8">
+            Seu site não deve ser apenas um cartão de visitas digital. Desenvolvemos ecossistemas web sob medida com tecnologias de ponta como Next.js, React e Tailwind CSS, otimizados para velocidade extrema, conversão imediata de leads e SEO de alta performance.
+          </p>
+
+          <!-- Feature items -->
+          <div class="space-y-6">
+            <div class="flex gap-4 cursor-default transition-transform duration-300 hover:translate-x-1.5">
+              <div class="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Velocidade Crítica (PageSpeed 95+)</h4>
+                <p class="text-[#A1A1AA] text-xs leading-relaxed">
+                  Código otimizado e imagens compactadas para carregamento em menos de 1 segundo. Cada milissegundo a menos aumenta sua conversão.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 cursor-default transition-transform duration-300 hover:translate-x-1.5">
+              <div class="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">Design Ultra Responsivo & Premium</h4>
+                <p class="text-[#A1A1AA] text-xs leading-relaxed">
+                  Experiência de navegação impecável em qualquer dispositivo, transmitindo o prestígio e a credibilidade que seu negócio merece.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex gap-4 cursor-default transition-transform duration-300 hover:translate-x-1.5">
+              <div class="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-1">SEO & Tráfego Orgânico Nativo</h4>
+                <p class="text-[#A1A1AA] text-xs leading-relaxed">
+                  Estruturação de tags, schemas e metadados para que seu site seja encontrado facilmente pelos mecanismos de busca como o Google.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Simulator Interface -->
+        <div class="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] p-6 sm:p-8 relative rounded-xl overflow-hidden hover:border-[#C5A059]/25 transition-all duration-300 reveal delay-200">
+          <div class="absolute top-px left-px right-px h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-[11px]"></div>
+          
+          <div class="mb-6 flex justify-between items-center">
+            <div>
+              <h3 class="text-lg font-serif text-white flex items-center gap-2">
+                <svg class="h-4 w-4 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                </svg>
+                Simulador de Impacto de Velocidade
+              </h3>
+              <p class="text-[10px] text-[#71717A] font-mono mt-1 uppercase tracking-wider">Mapeamento de Rejeição & Tráfego Perdido</p>
+            </div>
+            <button id="btn-reset-speed" onclick="resetSpeedSimulator()" class="hidden text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[9px] font-bold py-1.5 px-4 border border-[#1A1A1C] rounded-full transition-colors uppercase tracking-wider font-mono bg-[#0F0F12] cursor-pointer">
+              <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 6.002L19 8.21" />
+              </svg> Reiniciar
+            </button>
+          </div>
+
+          <!-- Configuration View -->
+          <div id="speed-config-view" class="space-y-6">
+            <div class="bg-[#0F0F12] p-4 border border-[#1A1A1C] text-xs text-[#A1A1AA] leading-relaxed flex gap-3">
+              <svg class="h-5 w-5 text-[#C5A059] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+              </svg>
+              <span>A lentidão de um site é o maior ladrão de clientes invisível do mercado digital. Ajuste os sliders de investimento abaixo e simule o impacto real de velocidade no seu faturamento.</span>
+            </div>
+
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Investimento Mensal em Tráfego (Anúncios)</span>
+                  <span id="label-speed-adspend" class="text-[#C5A059] font-extrabold">R$ 3.000</span>
+                </div>
+                <input type="range" id="input-speed-adspend" min="1000" max="50000" step="1000" value="3000" oninput="updateSpeedLabels()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Valor Estimado do Cliente / Venda</span>
+                  <span id="label-speed-leadvalue" class="text-[#C5A059] font-extrabold">R$ 1.500</span>
+                </div>
+                <input type="range" id="input-speed-leadvalue" min="500" max="10000" step="500" value="1500" oninput="updateSpeedLabels()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+            </div>
+
+            <button onclick="runSpeedAnalysis()" 
+                    class="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer hover:scale-[1.01] active:scale-95 duration-200">
+              <svg class="h-4 w-4 fill-black text-black" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+              </svg> Simular Impacto de Velocidade
+            </button>
+          </div>
+
+          <!-- Loading View -->
+          <div id="speed-loading-view" class="hidden py-16 text-center space-y-4">
+            <div class="relative w-16 h-16 mx-auto">
+              <div class="absolute inset-0 rounded-full border-4 border-[#C5A059]/20 border-t-[#C5A059] animate-spin"></div>
+            </div>
+            <p class="text-xs font-mono text-[#C5A059] animate-pulse uppercase tracking-widest">
+              Analisando largura de banda e tempos de resposta do servidor...
+            </p>
+          </div>
+
+          <!-- Results View -->
+          <div id="speed-results-view" class="hidden space-y-6">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Site Comum -->
+              <div class="bg-[#0F0F12] border border-red-500/20 p-4 relative rounded-xl flex flex-col justify-between">
+                <div class="absolute top-0 right-0 bg-red-950/40 border border-red-500/30 text-red-400 text-[8px] font-mono px-2 py-0.5 uppercase tracking-wider font-bold">
+                  Comum Lento
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Site Tradicional Lento</h4>
+                  
+                  <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-full border-2 border-red-500/30 border-t-red-500 flex items-center justify-center text-xs font-mono font-bold text-red-500 animate-pulse">
+                      38%
+                    </div>
+                    <div>
+                      <div class="text-[10px] text-[#71717A] font-mono uppercase">Carregamento</div>
+                      <div class="text-sm font-bold text-red-500">5.4 segundos</div>
+                    </div>
+                  </div>
+
+                  <ul class="space-y-2 text-[11px] text-[#A1A1AA] mb-4">
+                    <li class="flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-red-500"></span>
+                      Taxa de Rejeição: <strong class="text-white font-semibold">68%</strong>
+                    </li>
+                    <li class="flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-red-500"></span>
+                      Cliques Perdidos: <strong id="res-speed-lostclicks" class="text-white font-semibold">680 / mês</strong>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="border-t border-[#1A1A1C] pt-3 mt-3">
+                  <div class="text-[9px] text-[#71717A] font-mono uppercase mb-0.5">Verba Jogada no Lixo:</div>
+                  <div id="res-speed-lostmoney" class="text-base font-bold text-red-400">R$ 2.040</div>
+                </div>
+              </div>
+
+              <!-- Site LF7 -->
+              <div class="bg-[#0F0F12] border border-[#C5A059]/30 p-4 relative rounded-xl flex flex-col justify-between">
+                <div class="absolute top-0 right-0 bg-[#C5A059]/10 text-[#C5A059] text-[8px] font-mono px-2 py-0.5 uppercase tracking-wider font-bold border border-[#C5A059]/30">
+                  LF7 Web Engine
+                </div>
+                <div>
+                  <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3">Site LF7 de Elite</h4>
+                  
+                  <div class="flex items-center gap-3 mb-4">
+                    <div class="h-10 w-10 rounded-full border-2 border-[#C5A059]/20 border-t-[#C5A059] flex items-center justify-center text-xs font-mono font-bold text-[#C5A059]">
+                      98%
+                    </div>
+                    <div>
+                      <div class="text-[10px] text-[#71717A] font-mono uppercase">Carregamento</div>
+                      <div class="text-sm font-bold text-[#C5A059]">0.7 segundos</div>
+                    </div>
+                  </div>
+
+                  <ul class="space-y-2 text-[11px] text-[#A1A1AA] mb-4">
+                    <li class="flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#C5A059]"></span>
+                      Taxa de Rejeição: <strong class="text-[#C5A059] font-semibold">3%</strong>
+                    </li>
+                    <li class="flex items-center gap-1.5">
+                      <span class="h-1.5 w-1.5 rounded-full bg-[#C5A059]"></span>
+                      Cliques Aproveitados: <strong class="text-white font-semibold">97%</strong>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="border-t border-[#1A1A1C] pt-3 mt-3">
+                  <div class="text-[9px] text-[#71717A] font-mono uppercase mb-0.5">Recuperação de Mídia:</div>
+                  <div id="res-speed-savedmoney" class="text-base font-bold text-[#C5A059]">R$ 1.950</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Faturamento Adicional Card -->
+            <div class="bg-gradient-to-r from-[#0F0F12] to-[#C5A059]/10 p-5 border border-[#C5A059]/20 rounded-xl">
+              <div class="text-[9px] font-mono uppercase tracking-[0.16em] text-[#C5A059] font-bold">
+                Faturamento Adicional Estimado / Mês
+              </div>
+              <div id="res-speed-totalfaturamento" class="text-xl sm:text-2xl font-serif text-white mt-1.5">
+                + R$ 13.000 / Mês
+              </div>
+              <p class="text-[11px] text-[#A1A1AA] mt-2 leading-relaxed">
+                Ao reduzir o tempo de carregamento para menos de 1s, você estanca o desperdício de anúncios. Considerando cliques adicionais retidos e taxa média de conversão final de 4%, você recupera cerca de <strong id="res-speed-salesrecovered" class="text-white font-bold">9 vendas por mês</strong>.
+              </p>
+            </div>
+            
+            <button onclick="scrollToSection('form-leads')" 
+                    class="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer hover:scale-[1.01] active:scale-95 duration-200">
+              Construir Meu Site De Elite Agora &rarr;
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Showcase Concept Mockups -->
+      <div class="mt-20 pt-16 border-t border-[#1A1A1C]">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <h3 class="text-xl sm:text-2xl font-serif font-light text-white tracking-tight">
+            Galeria de Conceitos: <span class="text-[#C5A059] italic font-normal">Arquiteturas de Conversão</span>
+          </h3>
+          <p class="text-[#A1A1AA] text-xs sm:text-sm font-light mt-2">
+            Veja o nível de acabamento estético e design que construímos para cada segmento.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 1000px;">
+          
+          <!-- Mockup 1: Don Giovanni -->
+          <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-100 text-left" style="transform-style: preserve-3d;">
+            <div class="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">dongiovanni.netlify.app</div>
+            </div>
+            <a href="https://dongiovanni.netlify.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
+              <div>
+                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
+                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
+                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                  Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
+                </p>
+              </div>
+              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
+                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Mockup 2: Clínica Gizele Cabral -->
+          <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-200" style="transform-style: preserve-3d;">
+            <div class="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-gizele-cabral.vercel.app</div>
+            </div>
+            <a href="https://clinica-gizele-cabral.vercel.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
+              <div>
+                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
+                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Gizele Cabral • Estética</h4>
+                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                  Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
+                </p>
+              </div>
+              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
+                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+          <!-- Mockup 3: Sr. Urso -->
+          <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-300" style="transform-style: preserve-3d;">
+            <div class="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">sr-urso.vercel.app</div>
+            </div>
+            <a href="https://sr-urso.vercel.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
+              <div>
+                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
+                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
+                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                  Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
+                </p>
+              </div>
+              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
+                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. Interactive Simulator & ROI Calculator Section -->
+  <section id="simulator-section" class="py-24 bg-[#0F0F12] border-b border-[#1A1A1C] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+        <span class="text-[#C5A059] font-bold font-mono text-xs uppercase tracking-[0.2em] bg-[#C5A059]/10 border border-[#C5A059]/30 px-3 py-1 rounded-full">
+          Automação Interativa 🇧🇷
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-serif font-light text-white mt-5 tracking-tight">
+          Demonstração ao Vivo do Nosso Fluxo Comercial
+        </h2>
+        <p class="text-[#A1A1AA] text-sm mt-3 leading-relaxed max-w-2xl mx-auto">
+          Veja a tecnologia funcionando. Use o simulador de CRM inteligente abaixo para rodar nossa IA na sua empresa, ou ajuste a calculadora para prever seu ROI correspondente.
+        </p>
+      </div>
+
+      <div class="space-y-12">
+        
+        <!-- Tab Controls (Smooth scroll layout anchors) -->
+        <div class="flex justify-center w-full reveal">
+          <div class="bg-[#121215] p-1.5 rounded-3xl sm:rounded-full border border-[#1A1A1C] flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+            <button onclick="scrollToSection('simulator-anchor')" 
+                    class="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-2xl sm:rounded-full px-4 sm:px-6 py-3.5 sm:py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer active:scale-95 duration-150 w-full sm:w-auto text-center">
+              <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg> 1. Simulador de CRM Inteligente
+            </button>
+            <button onclick="scrollToSection('roi-calculator-section')" 
+                    class="hover:text-white text-[#A1A1AA] font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-2xl sm:rounded-full px-4 sm:px-6 py-3.5 sm:py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer active:scale-95 duration-150 w-full sm:w-auto text-center">
+              <svg class="h-3.5 w-3.5 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M12 16v1" />
+              </svg> 2. Calculadora de ROI
+            </button>
+          </div>
+        </div>
+
+        <!-- Simulator Grid -->
+        <div id="simulator-anchor" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <!-- CRM & Live Chat Mock Widget -->
+          <div class="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] rounded-xl p-6 sm:p-8 relative transition-all duration-300 hover:border-[#C5A059]/25 reveal delay-100">
+            <div class="flex items-center justify-between border-b border-[#1A1A1C] pb-6 mb-6">
+              <div>
+                <h3 class="text-lg font-serif text-white flex items-center gap-2">
+                  <span class="flex h-2 w-2 relative">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#C5A059] opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-[#C5A059]"></span>
+                  </span>
+                  Painel CRM • LF7 Leads V3
+                </h3>
+                <p class="text-[10px] text-[#71717A] font-mono mt-1 uppercase tracking-wider">Interface Integrada de WhatsApp IA</p>
+              </div>
+              <button id="btn-reset-crm" onclick="resetCrmSimulator()" class="hidden text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[10px] font-bold py-1.5 px-4 border border-[#1A1A1C] rounded-full transition-colors uppercase tracking-wider font-mono bg-[#0F0F12] cursor-pointer">
+                <svg class="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.21 6.002L19 8.21" />
+                </svg> Reiniciar
+              </button>
+            </div>
+
+            <!-- Form Block -->
+            <form id="crm-form" onsubmit="startCrmSimulation(event)" class="space-y-6">
+              <div class="bg-[#0F0F12] p-4 border border-[#1A1A1C] text-xs text-[#A1A1AA] leading-relaxed mb-2 flex gap-3">
+                <svg class="h-5 w-5 text-[#C5A059] shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>Insira suas informações abaixo. Nosso motor local simulará a qualificação do lead no funil do CRM e uma conversa do seu funcionário virtual de vendas.</span>
+              </div>
+
+              <div>
+                <label class="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Nome da Empresa Comercial *</label>
+                <input type="text" id="crm-company" placeholder="Ex: Construtora Alvorada, Clínica Harmony..." required
+                       class="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none focus:ring-1 focus:ring-[#C5A059]/50 transition-all">
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Segmento Operacional</label>
+                  <select id="crm-segment"
+                          class="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none transition-all cursor-pointer">
+                    <option value="imobiliaria">🏢 Imobiliárias & Corretores</option>
+                    <option value="estetica">💖 Clínica de Estética & Saúde</option>
+                    <option value="saas">💻 Tecnologia & SaaS</option>
+                    <option value="advocacia">⚖️ Escritórios de Advocacia</option>
+                    <option value="ecommerce">🛒 E-commerce & Varejo</option>
+                    <option value="default">💼 Outros Prestadores de Serviços</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label class="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Dificuldade Atual</label>
+                  <input type="text" id="crm-challenges" placeholder="Ex: Demora na resposta, contatos frios..." value="Demora na resposta e acompanhamento de contatos"
+                         class="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none transition-all">
+                </div>
+              </div>
+
+              <button type="submit" 
+                      class="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer hover:scale-[1.01] active:scale-95 duration-200">
+                <svg class="h-4 w-4 fill-black text-black" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg> Construir Estratégia de IA
+              </button>
+            </form>
+
+            <!-- Active Simulation View -->
+            <div id="crm-simulation-view" class="hidden space-y-6">
+              
+              <!-- Kanban Status -->
+              <div>
+                <h4 class="text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-3">Status do Lead no CRM da LF7:</h4>
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[9px] sm:text-xs">
+                  <div id="kanban-col-1" class="p-2.5 rounded-xl border bg-[#0F0F12] border-[#1A1A1C] text-[#71717A] transition-all duration-300">
+                    <div class="truncate font-mono font-bold">1. CAPTURADO</div>
+                    <div id="kanban-badge-1" class="hidden mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block">Entrou</div>
+                  </div>
+                  <div id="kanban-col-2" class="p-2.5 rounded-xl border bg-[#0F0F12] border-[#1A1A1C] text-[#71717A] transition-all duration-300">
+                    <div class="truncate font-mono font-bold">2. TRIAGEM IA</div>
+                    <div id="kanban-badge-2" class="hidden mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block animate-pulse">Avaliando</div>
+                  </div>
+                  <div id="kanban-col-3" class="p-2.5 rounded-xl border bg-[#0F0F12] border-[#1A1A1C] text-[#71717A] transition-all duration-300">
+                    <div class="truncate font-mono font-bold">3. QUALIFICADO</div>
+                    <div id="kanban-badge-3" class="hidden mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block">Pronto</div>
+                  </div>
+                  <div id="kanban-col-4" class="p-2.5 rounded-xl border bg-[#0F0F12] border-[#1A1A1C] text-[#71717A] transition-all duration-300">
+                    <div class="truncate font-mono font-bold">4. AGENDADO</div>
+                    <div id="kanban-badge-4" class="hidden mt-1 text-[8px] sm:text-[9px] bg-emerald-500 text-black font-sans py-0.5 px-1.5 rounded-none inline-block uppercase tracking-wider">Marcado 📅</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Strategic info card -->
+              <div class="bg-[#0F0F12] p-4 border border-[#1A1A1C] rounded-xl">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <div class="flex items-center gap-2">
+                    <span id="crm-info-company" class="text-xs font-bold text-white capitalize px-2 py-0.5 bg-[#121215] rounded-none border border-[#1A1A1C] font-mono tracking-tight"></span>
+                    <span id="crm-info-segment" class="text-[9px] text-[#71717A] font-mono uppercase"></span>
+                  </div>
+                  <span class="text-[10px] font-mono text-[#C5A059] tracking-wider uppercase">Engenharia Ativa</span>
+                </div>
+                <div class="space-y-2.5 text-xs text-neutral-300 leading-relaxed">
+                  <p><strong class="text-[#C5A059] font-bold uppercase tracking-wider font-mono mr-1">Roteiro IA WhatsApp:</strong> <span id="strategy-script"></span></p>
+                  <p><strong class="text-white/80 font-bold uppercase tracking-wider font-mono mr-1">Pontos de Atrito Mapeados:</strong> <span id="strategy-pains"></span></p>
+                </div>
+              </div>
+
+              <!-- WhatsApp Chat Simulator Frame -->
+              <div class="border border-[#1A1A1C] rounded-xl bg-[#0F0F12] overflow-hidden">
+                <div class="bg-[#121215] border-b border-[#1A1A1C] px-4 py-3 flex items-center justify-between">
+                  <div class="flex items-center gap-2">
+                    <div class="h-2 w-2 rounded-full bg-emerald-500 animate-ping"></div>
+                    <span class="text-xs font-bold text-white">Abordagem do Robô Inteligente (Simulação)</span>
+                  </div>
+                  <span class="text-[10px] text-[#71717A] font-mono uppercase">WhatsApp Cloud API</span>
+                </div>
+
+                <div id="chat-messages-container" class="p-4 h-64 overflow-y-auto space-y-3 flex flex-col justify-end bg-[#0A0A0B]/60 shadow-inner">
+                  <!-- Messages will be injected dynamically -->
+                </div>
+              </div>
+
+              <!-- Success block -->
+              <div id="crm-success-card" class="hidden bg-[#121215] border border-emerald-500/50 p-6 rounded-xl text-center">
+                <div class="h-10 w-10 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mx-auto mb-3">
+                  <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h4 class="text-xs font-bold text-[#C5A059] uppercase tracking-widest font-mono">Simulação de Sucesso!</h4>
+                <p class="text-[#A1A1AA] text-xs mt-2 max-w-lg mx-auto leading-relaxed">
+                  O robô com inteligência artificial estabeleceu diálogo realista, contornou as dores operacionais e cadastrou a oportunidade de reunião integrada sem intervenção humana.
+                </p>
+                <button onclick="scrollToSection('form-leads')"
+                        class="mt-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-full text-[10px] tracking-widest uppercase cursor-pointer hover:scale-105 transition-all duration-300 active:scale-95">
+                  Agendar Diagnóstico Gratuito 📲
+                </button>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ROI Calculator Card -->
+          <div id="roi-calculator-section" class="lg:col-span-5 bg-[#121215] border border-[#1A1A1C] rounded-xl p-6 sm:p-8 transition-all duration-300 hover:border-[#C5A059]/25 reveal delay-200">
+            <div class="flex items-center gap-2 mb-4">
+              <svg class="h-5 w-5 text-[#C5A059]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M12 16v1" />
+              </svg>
+              <h3 class="text-lg font-serif text-white">Calculadora Comercial B2B</h3>
+            </div>
+            <p class="text-[#A1A1AA] text-xs leading-relaxed mb-8">
+              Configure as métricas mensais do seu negócio para descobrir o faturamento desperdiçado por atraso comercial de atendimento.
+            </p>
+
+            <div class="space-y-6">
+              
+              <!-- Slider 1 -->
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2.5">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Leads Recebidos / Mês</span>
+                  <span id="label-roi-leads" class="text-[#C5A059] font-extrabold">150 contatos</span>
+                </div>
+                <input type="range" id="input-roi-leads" min="10" max="1000" step="10" value="150" oninput="calculateROI()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+
+              <!-- Slider 2 -->
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2.5">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Ticket Médio de Venda</span>
+                  <span id="label-roi-ticket" class="text-[#C5A059] font-extrabold">R$ 2.500</span>
+                </div>
+                <input type="range" id="input-roi-ticket" min="100" max="20000" step="100" value="2500" oninput="calculateROI()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+
+              <!-- Slider 3 -->
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2.5">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Tempo de Resposta Comercial</span>
+                  <span id="label-roi-delay" class="text-red-400 font-extrabold">90 minutos</span>
+                </div>
+                <input type="range" id="input-roi-delay" min="2" max="240" step="5" value="90" oninput="calculateROI()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+
+              <!-- Slider 4 -->
+              <div>
+                <div class="flex justify-between text-[10px] font-mono mb-2.5">
+                  <span class="text-[#A1A1AA] uppercase tracking-wider font-bold">Taxa de Conversão Atual</span>
+                  <span id="label-roi-conversion" class="text-[#C5A059] font-extrabold">4%</span>
+                </div>
+                <input type="range" id="input-roi-conversion" min="1" max="20" step="0.5" value="4" oninput="calculateROI()"
+                       class="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]">
+              </div>
+
+              <!-- Computational results -->
+              <div class="mt-8 border-t border-[#1A1A1C] pt-6 space-y-4">
+                <div class="flex justify-between text-xs">
+                  <span class="text-[#A1A1AA] font-bold font-mono uppercase tracking-wider">Perda de oportunidade:</span>
+                  <span id="res-roi-lossrate" class="text-[#C5A059] font-mono font-bold">-70% de taxa de conversão</span>
+                </div>
+                
+                <div class="flex justify-between text-xs">
+                  <span class="text-[#A1A1AA] font-bold font-mono uppercase tracking-wider">Prejuízo Financeiro Mês:</span>
+                  <span id="res-roi-lossrevenue" class="text-red-400 font-mono font-bold">R$ 35.000</span>
+                </div>
+
+                <!-- Recovery Block -->
+                <div class="bg-gradient-to-r from-[#0F0F12] to-[#C5A059]/10 p-5 border border-[#C5A059]/20 rounded-none relative overflow-hidden">
+                  <div class="text-[9px] font-mono uppercase tracking-[0.16em] text-[#C5A059] font-bold">Faturamento Recuperado • Estimado</div>
+                  <div id="res-roi-recoveredrevenue" class="text-xl sm:text-2xl font-serif text-white mt-1.5 inline-block">
+                    + R$ 15.750 / Mês
+                  </div>
+                  <p class="text-[11px] text-[#A1A1AA] mt-2 leading-relaxed">
+                    Reduzindo o atendimento para 3 segundos com robôs IA, estimamos a recuperação média de <strong id="res-roi-recoveredleads" class="text-white font-bold">6 vendas mensais</strong> anteriormente perdidas no limbo.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. Difference Pillars (Por que escolher a LF7) -->
+  <section class="py-24 bg-[#0A0A0B] border-b border-[#1A1A1C] relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+        <h2 class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-3">Compromisso e Qualidade</h2>
+        <p class="text-3xl sm:text-5xl font-serif font-light text-white tracking-tight">
+          A Diferença de Unir IA & Performance
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Pillar 1 -->
+        <div class="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300 reveal delay-100">
+          <span class="text-3xl text-[#C5A059] block mb-5">👁️</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Visão 360 do Funil</h4>
+          <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
+            Analisamos e integramos desde a segmentação de anúncios até o carregamento do site de alta performance, roteiro de WhatsApp e agendamento CRM de vendas estruturado.
+          </p>
+        </div>
+
+        <!-- Pillar 2 -->
+        <div class="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300 reveal delay-200">
+          <span class="text-3xl text-[#C5A059] block mb-5">🤖</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Higienização Inteligente</h4>
+          <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
+            Oferecemos conexões nativas com CRM líderes de mercado do Brasil (RD Station, ActiveCampaign, HubSpot). Seus dados entram qualificados, pré-triados e estruturados.
+          </p>
+        </div>
+
+        <!-- Pillar 3 -->
+        <div class="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300 reveal delay-300">
+          <span class="text-3xl text-[#C5A059] block mb-5">⚡</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Velocidade Crítica</h4>
+          <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
+            Nossos códigos minimizam o tempo de download eliminando sobrecargas. Menor lentidão significa melhor custo de conversão por anúncio digital nas plataformas.
+          </p>
+        </div>
+
+        <!-- Pillar 4 -->
+        <div class="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300 reveal delay-400">
+          <span class="text-3xl text-[#C5A059] block mb-5">📈</span>
+          <h4 class="text-sm font-bold uppercase tracking-wider text-white mb-2">Tom de Voz Corporativo</h4>
+          <p class="text-[#A1A1AA] text-xs sm:text-sm leading-relaxed">
+            Desenhamos robôs customizados que usam linguagem refinada, empática e estritamente educada. Adequamos os prompts de acordo com o padrão do seu público alvo.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. Testimonials Carousel Section -->
+  <section id="testimonials" class="py-24 bg-gradient-to-b from-[#0F0F12] via-[#0A0A0B] to-[#0F0F12] border-b border-[#1A1A1C] relative overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[#C5A059]/5 rounded-full blur-[120px] pointer-events-none z-0"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between mb-16 gap-6 reveal">
+        <div class="max-w-xl">
+          <h2 class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-3">Histórias de Sucesso</h2>
+          <p class="text-3xl sm:text-5xl font-serif font-light text-white tracking-tight">
+            Quem Confia e Multiplica com a LF7
+          </p>
+        </div>
+        
+        <!-- Controls -->
+        <div class="flex items-center gap-3">
+          <button onclick="prevTestimonial()" 
+                  class="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button onclick="nextTestimonial()" 
+                  class="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110 active:scale-90 cursor-pointer">
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Testimonial Active Card -->
+      <div class="relative reveal">
+        <!-- Elegant visual badge -->
+        <div class="absolute top-0 right-10 -translate-y-1/2 bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] text-black text-[9px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 shadow-lg z-20">
+          Resultado LF7 Automações
+        </div>
+
+        <div id="testimonial-card" class="bg-[#121215] border border-[#1A1A1C] hover:border-[#C5A059]/20 transition-all duration-300 relative rounded-xl shadow-[20px_20px_0_rgba(10,10,11,0.5)] overflow-hidden">
+
+          <!-- Sliding layout wrapper -->
+          <div id="testimonial-slide" class="grid grid-cols-1 lg:grid-cols-12 transition-all duration-500 opacity-100 transform translate-x-0">
+            
+            <!-- Highlight Info Col -->
+            <div class="lg:col-span-5 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-[#1A1A1C] flex flex-col justify-between bg-gradient-to-br from-[#121215] to-[#0A0A0B]">
+              <div>
+                <span id="t-segment" class="text-[#C5A059] font-mono text-[10px] uppercase tracking-widest mb-4 block"></span>
+                <h3 id="t-result" class="text-2xl sm:text-3xl font-serif font-black text-white leading-tight mb-3"></h3>
+                <p id="t-highlight" class="text-[#E5C384] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6"></p>
+              </div>
+
+              <div class="flex items-center gap-4 mt-8">
+                <div class="relative w-14 h-14 shrink-0 border border-[#C5A059]/30 p-0.5 bg-black">
+                  <img id="t-image" src="" alt="" class="w-full h-full object-cover rounded-none grayscale">
+                </div>
+                <div>
+                  <h4 id="t-name" class="text-sm font-bold text-white uppercase tracking-wider font-sans"></h4>
+                  <p id="t-role" class="text-xs text-[#71717A] mt-0.5"></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quotation Col -->
+            <div class="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between relative bg-[#121215]/40 min-h-[300px]">
+              <!-- Quote Background Icon -->
+              <svg class="absolute right-8 bottom-8 text-[#1A1A1C] h-40 w-40 pointer-events-none z-0 opacity-40" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.154c-2.433.914-3.996 3.635-3.996 5.846h3.983v10h-9.983z"/>
+              </svg>
+
+              <div class="relative z-10">
+                <!-- Stars -->
+                <div id="t-stars" class="flex items-center gap-1 mb-8">
+                  <!-- Stars will be injected -->
+                </div>
+                <!-- Quote paragraph -->
+                <p id="t-quote" class="text-[#D1D1D6] font-serif font-light text-base sm:text-lg leading-relaxed italic"></p>
+              </div>
+
+              <div class="relative z-10 mt-10 pt-8 border-t border-[#1A1A1C] flex flex-wrap items-center justify-between gap-4">
+                <span class="text-[10px] font-mono text-[#71717A] uppercase tracking-widest">Estudo de Caso Auditado</span>
+                <a href="https://wa.me/5521981062423?text=Olá,%20vi%20o%20caso%20de%20sucesso%20no%20site%20e%20gostaria%20de%20resultados%20similares%20de%20automação!" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="text-[#C5A059] hover:text-[#E5C384] text-xs font-bold uppercase tracking-widest flex items-center gap-2 group transition-all duration-300 hover:scale-105 active:scale-95">
+                  <span>Quero estes resultados</span>
+                  <svg class="h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Carousel Dot Indicators -->
+      <div id="testimonial-dots" class="flex items-center justify-center gap-2.5 mt-8 reveal">
+        <!-- Dots will be injected -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. FAQ Accordion Section -->
+  <section id="faq" class="py-24 bg-[#0F0F12] border-b border-[#1A1A1C] relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <div class="text-center mb-20 reveal">
+        <h2 class="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-3">Objeções Resolvidas</h2>
+        <p class="text-3xl sm:text-4xl font-serif font-light text-white tracking-tight">
+          Tudo o que você precisa saber antes de iniciar
+        </p>
+      </div>
+
+      <!-- Accordion Grid -->
+      <div class="space-y-4">
+        
+        <!-- FAQ item 1 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C5A059]/30 reveal delay-100">
+          <button onclick="toggleFaq(0)" 
+                  class="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4 cursor-pointer">
+            <span class="text-sm sm:text-base font-serif leading-relaxed">Eu já tenho um site e uma conta no WhatsApp. Preciso trocar de número?</span>
+            <svg id="faq-chevron-0" class="h-4 w-4 text-[#C5A059] shrink-0 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="faq-answer-0" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pb-6 sm:px-8 sm:pb-6 text-[#A1A1AA] text-xs sm:text-sm leading-relaxed border-t border-[#1A1A1C] pt-4 font-sans">
+              Não! Seus números e sites atuais podem ser mantidos. No caso do WhatsApp, integramos a inteligência artificial diretamente ao seu número comercial atual utilizando a API oficial (Cloud API do WhatsApp), garantindo máxima segurança contra banimentos e zero atrito operacional para sua equipe.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ item 2 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C5A059]/30 reveal delay-150">
+          <button onclick="toggleFaq(1)" 
+                  class="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4 cursor-pointer">
+            <span class="text-sm sm:text-base font-serif leading-relaxed">Como a Inteligência Artificial sabe o que responder para o meu cliente?</span>
+            <svg id="faq-chevron-1" class="h-4 w-4 text-[#C5A059] shrink-0 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="faq-answer-1" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pb-6 sm:px-8 sm:pb-6 text-[#A1A1AA] text-xs sm:text-sm leading-relaxed border-t border-[#1A1A1C] pt-4 font-sans">
+              Desenvolvemos uma base de conhecimentos de Engenharia de Prompt e dados personalizada para o seu negócio. Mapeamos seus produtos, preços, formas de pagamento, objeções frequentes e políticas. A IA é estritamente programada para não inventar informações e, caso surja uma pergunta altamente incomum, passa o atendimento na hora para um agente humano da sua equipe.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ item 3 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C5A059]/30 reveal delay-200">
+          <button onclick="toggleFaq(2)" 
+                  class="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4 cursor-pointer">
+            <span class="text-sm sm:text-base font-serif leading-relaxed">Em quanto tempo os resultados começam a aparecer?</span>
+            <svg id="faq-chevron-2" class="h-4 w-4 text-[#C5A059] shrink-0 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="faq-answer-2" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pb-6 sm:px-8 sm:pb-6 text-[#A1A1AA] text-xs sm:text-sm leading-relaxed border-t border-[#1A1A1C] pt-4 font-sans">
+              No pilar de Automação de WhatsApp e Criação de Sites de Alta Conversão, o impacto é imediato. No primeiro dia de funcionamento da IA, nenhum lead mais esfria e todas as abordagens do tráfego acontecem em segundos. Para a Gestão de Tráfego, iniciamos com fases de teste aceleradas de 7 a 15 dias para otimizar os criativos e começar a trazer leads qualificados diariamente.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ item 4 -->
+        <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden transition-all duration-300 hover:border-[#C5A059]/30 reveal delay-250">
+          <button onclick="toggleFaq(3)" 
+                  class="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4 cursor-pointer">
+            <span class="text-sm sm:text-base font-serif leading-relaxed">Preciso de um computador ligado para as automações funcionarem?</span>
+            <svg id="faq-chevron-3" class="h-4 w-4 text-[#C5A059] shrink-0 transform transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          <div id="faq-answer-3" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+            <div class="px-6 pb-6 sm:px-8 sm:pb-6 text-[#A1A1AA] text-xs sm:text-sm leading-relaxed border-t border-[#1A1A1C] pt-4 font-sans">
+              De forma alguma! Nossa infraestrutura funciona inteiramente na nuvem (Cloud Computing). Seus 'Funcionários IA' e sistemas de automação de vendas estarão ativos 24 horas por dia, 7 dias por semana, mesmo que seu celular esteja desligado, que a empresa esteja fechada ou que seja feriado nacional.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. Bottom CTA Form Section -->
+  <section id="form-leads" class="py-24 bg-[#0A0A0B] relative">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+      
+      <div class="max-w-3xl mx-auto mb-16 reveal">
+        <span class="text-[#C5A059] font-bold font-mono text-xs uppercase tracking-[0.2em] bg-[#C5A059]/10 border border-[#C5A059]/30 px-3 py-1 rounded-full">
+          Sessão Estratégica Gratuita
+        </span>
+        <h2 class="text-3xl sm:text-5xl font-serif font-light text-white mt-6 tracking-tight mb-4">
+          Comece a recuperar sua receita comercial hoje
+        </h2>
+        <p class="text-[#A1A1AA] text-sm sm:text-base leading-relaxed font-light">
+          Agende um diagnóstico gratuito com nosso especialista. Analisaremos o cenário operacional de sua empresa, identificaremos furos no funil e desenharemos o plano ideal para maximizar sua lucratividade.
+        </p>
+      </div>
+
+      <div class="bg-[#0F0F12] border border-[#1A1A1C] p-8 sm:p-12 rounded-xl max-w-2xl mx-auto text-center relative overflow-hidden transition-all duration-300 hover:border-[#C5A059]/25 reveal delay-100">
+        <div class="absolute top-px left-px right-px h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-[11px]"></div>
+
+        <div class="mb-6">
+          <span class="text-4xl">📊</span>
+          <h3 class="text-lg font-serif text-white mt-4 font-bold">Diagnóstico Comercial Personalizado</h3>
+          <p class="text-[11px] text-[#A1A1AA] mt-2 leading-relaxed font-mono uppercase tracking-wider">
+            Vagas limitadas para este semestre devido à nossa alta demanda
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <a href="https://wa.me/5521981062423?text=Olá,%20gostaria%20de%20solicitar%20meu%20diagnóstico%20de%20automação%20e%20CRM%20gratuito!" 
+             target="_blank" rel="noopener noreferrer"
+             class="group w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold py-5 rounded-full text-center flex items-center justify-center gap-3 transition-all duration-300 hover:scale-[1.02] active:scale-95 hover:shadow-[0_0_20px_rgba(197,160,89,0.4)] tracking-widest text-xs uppercase cursor-pointer">
+            <svg class="h-4 w-4 fill-black text-black shrink-0 transform transition-transform duration-300 group-hover:rotate-12" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M18 10c0 3.866-3.582 7-8 7a8.841 8.841 0 01-4.083-.98L2 17l1.338-3.123C2.493 12.767 2 11.434 2 10c0-3.866 3.582-7 8-7s8 3.134 8 7zM7 9H5v2h2V9zm8 0h-2v2h2V9zM9 9h2v2H9V9z" clip-rule="evenodd" />
+            </svg> Agendar Via WhatsApp
+          </a>
+
+          <p class="text-[9px] text-[#71717A] font-mono uppercase tracking-wider">
+            Sem compromisso • Diagnóstico conduzido diretamente em 15 minutos na nossa sala virtual
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. Footer -->
+  <footer class="border-t border-[#1A1A1C] bg-[#0F0F12] py-14 text-center text-xs text-[#71717A] font-mono leading-relaxed">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+      <div class="flex justify-center items-center gap-2 mb-2">
+        <span class="h-1.5 w-1.5 rounded-full bg-[#C5A059]"></span>
+        <span class="text-white font-extrabold text-xs sm:text-sm tracking-[0.25em] uppercase font-sans">LF7 Marketing & Automações Inteligentes</span>
+      </div>
+      <p class="max-w-md mx-auto text-[11px] text-[#71717A]">
+        A LF7 impulsiona dezenas de empresas através da convergência perfeita entre inteligência artificial conversacional estruturada, páginas comerciais refinadas e tráfego massivo.
+      </p>
+      <div class="pt-6 border-t border-[#1A1A1C] flex flex-wrap justify-center gap-x-8 gap-y-4 text-[10px] uppercase tracking-wider">
+        <span>© 2026 LF7 Marketing Digital e Automações. Todos os direitos reservados.</span>
+        <button onclick="openModal('privacy')" class="text-[#71717A] hover:text-[#C5A059] transition-all cursor-pointer font-bold focus:outline-none hover:scale-[1.02]">Política de Privacidade</button>
+        <button onclick="openModal('terms')" class="text-[#71717A] hover:text-[#C5A059] transition-all cursor-pointer font-bold focus:outline-none hover:scale-[1.02]">Termos de Uso</button>
+        <span>Atuação em todo o território nacional 🇧🇷</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating WhatsApp Button -->
+  <div class="fixed bottom-6 right-6 z-50 group">
+    <a href="https://wa.me/5521981062423?text=Olá,%20gostaria%20de%20fazer%20um%20diagnóstico%20de%20automação%20e%20falar%20com%20um%20especialista!" 
+       target="_blank" rel="noopener noreferrer"
+       class="relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full transition-all duration-300 hover:scale-110 active:scale-95 border border-[#25D366]/60 shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:shadow-[0_0_35px_rgba(37,211,102,0.7)] cursor-pointer"
+       aria-label="WhatsApp">
+      <span class="absolute -inset-1.5 rounded-full bg-[#25D366] opacity-35 animate-ping pointer-events-none" style="animation-duration: 2s;"></span>
+      
+      <!-- Glassmorphic Tooltip label displayed on hover -->
+      <span class="absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap bg-black/90 backdrop-blur-md text-[#25D366] border border-[#25D366]/40 px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest leading-none pointer-events-none opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 shadow-xl">
+        Fale Conosco
+      </span>
+
+      <svg class="h-7 w-7 text-white" viewBox="0 0 448 512">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.8c32.7 17.9 69.4 27.3 107.1 27.3h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-13.6-6.8-25-10.8-40.8-24.8-12.3-11-20.6-24.5-23-28.3-2.4-3.8-.3-5.8 1.6-7.7 1.7-1.7 3.7-4.3 5.6-6.5 1.9-2.2 2.5-3.8 3.7-6.3 1.2-2.5.6-4.6-.3-6.5-1-1.9-8.8-21.2-12.1-29.1-3.2-7.8-6.5-6.7-8.9-6.8-2.3-.1-5-.1-7.6-.1-2.6 0-6.8 1-10.4 4.9-3.6 3.9-13.9 13.6-13.9 33.1s14.3 38.3 16.3 41c2.1 2.7 28.2 43.1 68.3 60.3 9.6 4.1 17.1 6.6 23 8.5 9.7 3.1 18.5 2.7 25.5 1.7 7.7-1.1 23.7-9.7 27-18.5 3.4-8.8 3.4-16.2 2.3-18-1-1.8-3.6-2.8-9.1-5.5z"/>
+      </svg>
+    </a>
+  </div>
+
+  <!-- Privacy Policy Modal -->
+  <div id="modal-privacy" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+    <div onclick="closeModal('privacy')" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-xl shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none">
+      <div class="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-xl"></div>
+      <div class="p-6 sm:p-10 text-left relative">
+        <button onclick="closeModal('privacy')" class="absolute top-6 right-6 text-[#71717A] hover:text-white transition-colors cursor-pointer p-1">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="h-2 w-2 rounded-full bg-[#C5A059] animate-pulse"></span>
+          <span class="text-[#C5A059] font-mono text-[10px] uppercase tracking-widest font-bold">LF7 Automações • Segurança Digital</span>
+        </div>
+        <h2 class="text-2xl font-serif text-white font-bold leading-tight mb-6">Política de Privacidade</h2>
+        <div class="space-y-6 text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-sans overflow-y-auto pr-3 max-h-[48vh]">
+          <p>A sua privacidade é de extrema relevância para nós da LF7. Esta Política de Privacidade formaliza o nosso compromisso inabalável com a proteção, transparência e segurança de todos os dados pessoais fornecidos ao navegar ou preencher simulações no nosso portal.</p>
+          <section class="space-y-2">
+            <h3 class="text-[#E5C384] font-bold font-serif text-sm uppercase tracking-wider border-b border-[#1A1A1C] pb-1">1. Coleta legítima de Dados</h3>
+            <p>Coletamos informações voluntariamente cedidas por você através de nossos simuladores corporativos e botões de contato, incluindo:</p>
+            <ul class="list-disc pl-5 space-y-1 text-[#8F8F95]">
+              <li>Dados de negócio para cálculo de ROI (número de leads mensais, ticket médio, atraso na resposta de contatos e nicho de mercado);</li>
+              <li>Dados de contato (WhatsApp e nome corporativo, caso utilize os canais de contato direto);</li>
+              <li>Informações técnicas automáticas de sessão (cookies funcionais e dados gerais de navegador).</li>
+            </ul>
+          </section>
+          <section class="space-y-2">
+            <h3 class="text-[#E5C384] font-bold font-serif text-sm uppercase tracking-wider border-b border-[#1A1A1C] pb-1">2. Tratamento e Finalidade (LGPD)</h3>
+            <p>Todo o tratamento de dados pessoais pela LF7 ocorre em estrita observância à Lei Geral de Proteção de Dados (Lei nº 13.709/2018), fundamentado no consentimento e no legítimo interesse profissional:</p>
+            <ul class="list-disc pl-5 space-y-1 text-[#8F8F95]">
+              <li>Retorno de Contato: Atender de forma ágil e personalizada às simulações e pedidos de diagnósticos gratuitos enviados;</li>
+              <li>Simulação: Ajustar os insights táticos às dores específicas do seu segmento comercial;</li>
+              <li>Livre opt-out: O usuário pode solicitar a exclusão de seus contatos de nossas listas a qualquer momento.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Terms of Use Modal -->
+  <div id="modal-terms" class="fixed inset-0 z-[100] hidden flex items-center justify-center p-4">
+    <div onclick="closeModal('terms')" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+    <div class="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-xl shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none">
+      <div class="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-xl"></div>
+      <div class="p-6 sm:p-10 text-left relative">
+        <button onclick="closeModal('terms')" class="absolute top-6 right-6 text-[#71717A] hover:text-white transition-colors cursor-pointer p-1">
+          <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <div class="flex items-center gap-2 mb-4">
+          <span class="h-2 w-2 rounded-full bg-[#C5A059] animate-pulse"></span>
+          <span class="text-[#C5A059] font-mono text-[10px] uppercase tracking-widest font-bold">LF7 Automações • Termos de Uso</span>
+        </div>
+        <h2 class="text-2xl font-serif text-white font-bold leading-tight mb-6">Termos de Uso Comercial</h2>
+        <div class="space-y-6 text-xs sm:text-sm text-[#A1A1AA] leading-relaxed font-sans overflow-y-auto pr-3 max-h-[48vh]">
+          <p>Bem-vindo ao site institucional da LF7. Ao navegar por nossas páginas, usufruir de nossos simuladores matemáticos interativos ou interagir com nossos recursos tecnológicos, você concorda irrestritamente com os termos estabelecidos a seguir.</p>
+          <section class="space-y-2">
+            <h3 class="text-[#E5C384] font-bold font-serif text-sm uppercase tracking-wider border-b border-[#1A1A1C] pb-1">1. Projeções e Isenções de Resultados</h3>
+            <p>Todo o ecossistema apresentado neste portal (incluindo o calculador de perdas por lentidão comercial e o simulador interativo de CRM conversacional) compreende ferramentas concebidas exclusivamente para fins analíticos hipotéticos, simulações ilustrativas e reflexão comercial.</p>
+            <p>A LF7 não oferece garantias contratuais de receitas fixas automáticas ou lucros absolutos com o uso isolado do software, dado que a taxa de vendas real está vinculada a variadas esferas sob gestão do próprio cliente, tais como atendimento das equipes comerciais de venda e qualidade na captação estratégica de tráfego.</p>
+          </section>
+          <section class="space-y-2">
+            <h3 class="text-[#E5C384] font-bold font-serif text-sm uppercase tracking-wider border-b border-[#1A1A1C] pb-1">2. Propriedade Intelectual e Proteção Visual</h3>
+            <p>Todas as criações de código-fonte deste site Web, designs inovadores, fluxos simulados de engajamento por robôs e a rede visual decorativa que acompanha a seção de serviços representam propriedade de titularidade exclusiva da marca LF7 protegidas legalmente. É terminantemente proibida qualquer clonagem, duplicação ou engenharia reversa sem nossa autorização prévia por escrito.</p>
+          </section>
+        </div>
+        <div class="mt-8 flex justify-end">
+          <button onclick="closeModal('terms')" class="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold uppercase tracking-widest text-[10px] py-4 px-8 rounded-full transition-all duration-300 cursor-pointer hover:scale-[1.02]">
+            Aceitar e Fechar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    /* 1. Global Navigation Helper */
+    function scrollToSection(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        // Offset for sticky header
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = el.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    }
+
+    /* 2. Mobile Menu Logic */
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = document.getElementById('menu-icon-open');
+      const closeIcon = document.getElementById('menu-icon-close');
+      
+      const isOpen = !menu.classList.contains('hidden');
+      if (isOpen) {
+        menu.classList.add('hidden');
+        openIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      } else {
+        menu.classList.remove('hidden');
+        openIcon.classList.add('hidden');
+        closeIcon.classList.remove('hidden');
+      }
+    }
+
+    function handleMobileNavClick(sectionId) {
+      toggleMobileMenu();
+      setTimeout(() => {
+        scrollToSection(sectionId);
+      }, 100);
+    }
+
+    /* 3. IntersectionObserver for Reveal Animations */
+    const revealElements = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: "0px 0px -50px 0px"
+    });
+
+    revealElements.forEach(el => observer.observe(el));
+
+    // Remove scale on bg video after zoom-out
+    window.addEventListener('load', () => {
+      const bgVideo = document.getElementById('hero-bg-video');
+      if (bgVideo) bgVideo.classList.remove('scale-[1.08]');
+    });
+
+    /* 4. Speed Simulator Logic */
+    let speedAdSpend = 3000;
+    let speedLeadValue = 1500;
+
+    function updateSpeedLabels() {
+      speedAdSpend = Number(document.getElementById('input-speed-adspend').value);
+      speedLeadValue = Number(document.getElementById('input-speed-leadvalue').value);
+      
+      document.getElementById('label-speed-adspend').innerText = 'R$ ' + speedAdSpend.toLocaleString('pt-BR');
+      document.getElementById('label-speed-leadvalue').innerText = 'R$ ' + speedLeadValue.toLocaleString('pt-BR');
+    }
+
+    function runSpeedAnalysis() {
+      document.getElementById('speed-config-view').classList.add('hidden');
+      document.getElementById('speed-loading-view').classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('speed-loading-view').classList.add('hidden');
+        document.getElementById('speed-results-view').classList.remove('hidden');
+        document.getElementById('btn-reset-speed').classList.remove('hidden');
+
+        // Calculations
+        const lostClicks = Math.round((speedAdSpend / 3) * 0.68);
+        const lostMoney = Math.round(speedAdSpend * 0.68);
+        const savedMoney = Math.round(speedAdSpend * 0.65);
+        const salesRecovered = Math.round((speedAdSpend / 3) * 0.65 * 0.04);
+        const totalFaturamento = Math.round(salesRecovered * speedLeadValue);
+
+        document.getElementById('res-speed-lostclicks').innerText = lostClicks + ' / mês';
+        document.getElementById('res-speed-lostmoney').innerText = 'R$ ' + lostMoney.toLocaleString('pt-BR');
+        document.getElementById('res-speed-savedmoney').innerText = 'R$ ' + savedMoney.toLocaleString('pt-BR');
+        document.getElementById('res-speed-totalfaturamento').innerText = '+ R$ ' + totalFaturamento.toLocaleString('pt-BR') + ' / Mês';
+        document.getElementById('res-speed-salesrecovered').innerText = salesRecovered + ' vendas por mês';
+      }, 1500);
+    }
+
+    function resetSpeedSimulator() {
+      document.getElementById('speed-results-view').classList.add('hidden');
+      document.getElementById('btn-reset-speed').classList.add('hidden');
+      document.getElementById('speed-config-view').classList.remove('hidden');
+    }
+
+    /* 5. CRM WhatsApp Simulator Logic */
+    let isCrmSimulating = false;
+    let crmMsgTimer = null;
+
+    const mockConversations = {
+      imobiliaria: [
+        { sender: 'ai', text: 'Olá! Identifiquei seu interesse no residencial de alto padrão. Gostaria de agendar uma visita para este sábado às 10h?' },
+        { sender: 'client', text: 'Olá, sim! Mas vocês aceitam financiamento bancário pela Caixa?' },
+        { sender: 'ai', text: 'Com certeza! Trabalhamos com todos os bancos comerciais e nossa assessoria cuida de toda a documentação sem custos adicionais. Posso agendar a visita?' },
+        { sender: 'client', text: 'Excelente. Pode confirmar para as 10h de sábado.' },
+        { sender: 'ai', text: 'Perfeito! Visita agendada. O corretor Bruno enviará o local exato e o voucher de visita em instantes. Até breve!' }
+      ],
+      estetica: [
+        { sender: 'ai', text: 'Olá! Que bom que gostou de nossa clínica de saúde e estética. Gostaria de agendar sua avaliação para amanhã às 14h?' },
+        { sender: 'client', text: 'Olá! Qual o valor da consulta de avaliação?' },
+        { sender: 'ai', text: 'A nossa avaliação clínica inicial é 100% gratuita para novos pacientes. Caso realize algum procedimento no dia, você já ganha um crédito especial. Podemos confirmar?' },
+        { sender: 'client', text: 'Ah legal! Pode sim.' },
+        { sender: 'ai', text: 'Maravilhoso! Horário agendado para amanhã às 14h. Aguardamos você!' }
+      ],
+      saas: [
+        { sender: 'ai', text: 'Olá! Vi que você se cadastrou para conhecer a plataforma de métricas LF7. Gostaria de marcar uma demonstração de 15 minutos com nosso engenheiro de vendas?' },
+        { sender: 'client', text: 'Oi! O sistema integra com o Salesforce e Google Sheets?' },
+        { sender: 'ai', text: 'Sim! Possuímos integração nativa de um clique para o Salesforce e API aberta para exportar todos os dados em tempo real para o Google Sheets. Vamos agendar a demonstração?' },
+        { sender: 'client', text: 'Perfeito, integrações cruciais para nós. Vamos agendar sim.' },
+        { sender: 'ai', text: 'Ótimo! Agendamento efetuado. O link de videoconferência foi enviado para o seu e-mail comercial. Até já!' }
+      ],
+      advocacia: [
+        { sender: 'ai', text: 'Olá! Recebemos sua solicitação de assessoria tributária corporativa. Nossos advogados possuem horários amanhã às 16h para consulta virtual. Podemos confirmar?' },
+        { sender: 'client', text: 'Olá! Vocês atuam na defesa tributária de empresas do Simples Nacional?' },
+        { sender: 'ai', text: 'Sim, somos especialistas em Simples Nacional, Lucro Presumido e Real. Realizamos revisões tributárias completas. Podemos manter amanhã às 16h?' },
+        { sender: 'client', text: 'Sim, por favor. O horário está ótimo.' },
+        { sender: 'ai', text: 'Entendido. Reunião confirmada. O link de acesso seguro da nossa sala virtual foi enviado via e-mail corporativo.' }
+      ],
+      ecommerce: [
+        { sender: 'ai', text: 'Olá! Vimos que você adicionou produtos ao carrinho mas não concluiu a compra. Gostaria de um cupom exclusivo de 10% de desconto?' },
+        { sender: 'client', text: 'Oi! Sim, gostaria. O frete é grátis para a região sudeste?' },
+        { sender: 'ai', text: 'Sim, nas compras acima de R$ 199 o frete é inteiramente grátis para todo o Sudeste! O cupom é LF7PRIME10. Gostaria de finalizar agora?' },
+        { sender: 'client', text: 'Vou concluir agora mesmo, obrigado!' },
+        { sender: 'ai', text: 'Excelente escolha! O seu pedido já foi recebido e estamos preparando para o despacho imediato. Acompanhe a entrega pelo código em seu e-mail.' }
+      ],
+      default: [
+        { sender: 'ai', text: 'Olá! Obrigado por entrar em contato com a nossa equipe de suporte. Como posso ajudar o seu negócio hoje?' },
+        { sender: 'client', text: 'Olá! Queria entender melhor os planos de contratação mensal de vocês.' },
+        { sender: 'ai', text: 'Temos planos sob medida para prestadores de serviços B2B, focados em geração de demanda e automação. Gostaria de agendar uma ligação rápida de 10 minutos para explicarmos?' },
+        { sender: 'client', text: 'Sim, pode ser amanhã na parte da manhã.' },
+        { sender: 'ai', text: 'Combinado! Ligação agendada para amanhã às 10h. Nosso consultor ligará diretamente para este número de WhatsApp comercial.' }
+      ]
+    };
+
+    const crmAutomationScripts = {
+      imobiliaria: 'Fluxo ativo de WhatsApp integrado a funil comercial imobiliário de luxo. IA capta interesse, remove objeções de financiamento e agenda visitas com corretores.',
+      estetica: 'Fluxo ativo de triagem clínica. IA atrai interessados de tráfego local, contorna preço e agenda avaliações gratuitas na clínica física.',
+      saas: 'Roteiro inteligente focado em demonstrações de software. IA responde dúvidas técnicas de integração de sistemas e agenda reuniões de vendas.',
+      advocacia: 'Engenharia de qualificação jurídica corporativa. IA filtra empresas por regime tributário e agenda consultas com sócios do escritório.',
+      ecommerce: 'Automação de carrinho abandonado e recuperação de faturamento. IA distribui cupons e resolve dúvidas de frete do checkout.',
+      default: 'Roteiro de abordagem genérico para prestadores B2B. IA tria o tamanho do lead comercial e agenda chamadas de diagnóstico com o comercial.'
+    };
+
+    const crmPainAnalyses = {
+      imobiliaria: 'Demora superior a 15 minutos na resposta inicial; leads imobiliários frios e desinteressados sobrecarregando o time comercial.',
+      estetica: 'Clínica ociosa devido a faltas frequentes e falta de lembretes ativos no WhatsApp; taxa de comparecimento em 45%.',
+      saas: 'Perda de leads de tráfego qualificado que exigem respostas técnicas imediatas em horários noturnos; baixo agendamento.',
+      advocacia: 'Advogados seniores perdendo horas diárias em triagem de contatos sem perfil econômico ou sem documentação inicial.',
+      ecommerce: 'Taxa de abandono de checkout superior a 75% sem qualquer abordagem de recuperação ativa baseada em dores do cliente.',
+      default: 'Furos comerciais no funil; falta de acompanhamento (follow-up) regular de contatos comerciais frios.'
+    };
+
+    function startCrmSimulation(e) {
+      e.preventDefault();
+      if (isCrmSimulating) return;
+      isCrmSimulating = true;
+
+      const companyName = document.getElementById('crm-company').value;
+      const segment = document.getElementById('crm-segment').value;
+      const challenges = document.getElementById('crm-challenges').value;
+
+      document.getElementById('crm-form').classList.add('hidden');
+      document.getElementById('crm-simulation-view').classList.remove('hidden');
+      document.getElementById('btn-reset-crm').classList.remove('hidden');
+
+      // Populate info cards
+      document.getElementById('crm-info-company').innerText = companyName;
+      document.getElementById('crm-info-segment').innerText = 'Segmento: ' + segment;
+      document.getElementById('strategy-script').innerText = crmAutomationScripts[segment] || crmAutomationScripts['default'];
+      document.getElementById('strategy-pains').innerText = crmPainAnalyses[segment] || crmPainAnalyses['default'];
+
+      const chatContainer = document.getElementById('chat-messages-container');
+      chatContainer.innerHTML = ''; // Clear
+
+      const messages = mockConversations[segment] || mockConversations['default'];
+      let msgIdx = 0;
+
+      // Reset Kanban classes
+      updateKanbanStatus('captured');
+
+      function playNextMessage() {
+        if (msgIdx >= messages.length) {
+          isCrmSimulating = false;
+          updateKanbanStatus('scheduled');
+          document.getElementById('crm-success-card').classList.remove('hidden');
+          return;
+        }
+
+        const msg = messages[msgIdx];
+        
+        // Show Typing Indicator
+        const typingIndicator = document.createElement('div');
+        typingIndicator.id = 'typing-indicator';
+        typingIndicator.className = 'bg-[#121215] text-[#C5A059] self-start text-[10px] px-3.5 py-1.5 border border-[#1A1A1C] rounded-none flex items-center gap-2 font-mono uppercase tracking-wider num-pop';
+        typingIndicator.innerHTML = '<span class="inline-block animate-bounce font-extrabold">.</span><span class="inline-block animate-bounce delay-100 font-extrabold">.</span><span class="inline-block animate-bounce delay-200 font-extrabold">.</span> <span>IA da LF7 está redigindo</span>';
+        
+        if (msg.sender === 'ai') {
+          chatContainer.appendChild(typingIndicator);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+
+        // Delay typing
+        const typingDelay = Math.min(2000, 800 + msg.text.length * 15);
+
+        crmMsgTimer = setTimeout(() => {
+          // Remove typing indicator if present
+          const indicator = document.getElementById('typing-indicator');
+          if (indicator) indicator.remove();
+
+          const messageEl = document.createElement('div');
+          messageEl.className = 'max-w-[85%] rounded-none px-4 py-3 text-xs leading-relaxed num-pop ' + 
+            (msg.sender === 'ai' 
+              ? 'bg-[#C5A059]/15 text-[#E5E5E5] self-start border border-[#C5A059]/30 font-sans' 
+              : 'bg-[#1D1D21] border border-[#2E2E33] text-neutral-200 self-end');
+          messageEl.innerText = msg.text;
+
+          chatContainer.appendChild(messageEl);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+
+          // Update Kanban Column based on message idx
+          const progress = msgIdx / messages.length;
+          if (progress < 0.25) {
+            updateKanbanStatus('captured');
+          } else if (progress < 0.6) {
+            updateKanbanStatus('qualifying');
+          } else {
+            updateKanbanStatus('hot');
+          }
+
+          msgIdx++;
+          playNextMessage();
+        }, typingDelay);
+      }
+
+      playNextMessage();
+    }
+
+    function updateKanbanStatus(status) {
+      const cols = ['captured', 'qualifying', 'hot', 'scheduled'];
+      cols.forEach((col, idx) => {
+        const el = document.getElementById('kanban-col-' + (idx + 1));
+        const badge = document.getElementById('kanban-badge-' + (idx + 1));
+        
+        el.className = 'p-2.5 rounded-none border text-center text-[9px] sm:text-xs transition-all duration-300 ';
+        if (status === col) {
+          if (col === 'scheduled') {
+            el.className += 'bg-emerald-950/40 border-emerald-500 text-emerald-300 font-bold shadow-sm';
+          } else {
+            el.className += 'bg-[#C5A059]/15 border-[#C5A059] text-[#C5A059] font-bold shadow-sm';
+          }
+          badge.classList.remove('hidden');
+          badge.classList.add('num-pop');
+        } else {
+          el.className += 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]';
+          badge.classList.add('hidden');
+          badge.classList.remove('num-pop');
+        }
+      });
+    }
+
+    function resetCrmSimulator() {
+      clearTimeout(crmMsgTimer);
+      isCrmSimulating = false;
+      document.getElementById('crm-company').value = '';
+      document.getElementById('crm-simulation-view').classList.add('hidden');
+      document.getElementById('crm-success-card').classList.add('hidden');
+      document.getElementById('btn-reset-crm').classList.add('hidden');
+      document.getElementById('crm-form').classList.remove('hidden');
+    }
+
+    /* 6. ROI Calculator Logic */
+    function calculateROI() {
+      const leadsCount = Number(document.getElementById('input-roi-leads').value);
+      const averageTicket = Number(document.getElementById('input-roi-ticket').value);
+      const averageDelay = Number(document.getElementById('input-roi-delay').value);
+      const currentConversion = Number(document.getElementById('input-roi-conversion').value);
+
+      // Labels
+      document.getElementById('label-roi-leads').innerText = leadsCount + ' contatos';
+      document.getElementById('label-roi-ticket').innerText = 'R$ ' + averageTicket.toLocaleString('pt-BR');
+      document.getElementById('label-roi-delay').innerText = averageDelay >= 180 ? 'Mais de 3h' : averageDelay + ' minutos';
+      document.getElementById('label-roi-conversion').innerText = currentConversion + '%';
+
+      if (averageDelay >= 180) {
+        document.getElementById('label-roi-delay').className = 'text-red-500 font-extrabold';
+      } else {
+        document.getElementById('label-roi-delay').className = 'text-red-400 font-extrabold';
+      }
+
+      // Calculations
+      let lossRate = 0;
+      if (averageDelay <= 5) lossRate = 10;
+      else if (averageDelay <= 15) lossRate = 25;
+      else if (averageDelay <= 60) lossRate = 50;
+      else if (averageDelay <= 180) lossRate = 70;
+      else lossRate = 85;
+
+      const actualSales = (leadsCount * (currentConversion / 100));
+      const potentialSalesWithoutDelay = actualSales / (1 - (lossRate / 100));
+      const financialLoss = Math.round((potentialSalesWithoutDelay - actualSales) * averageTicket);
+      
+      const lf7RecoverPercent = 0.45;
+      const recoveredLeads = Math.round((potentialSalesWithoutDelay - actualSales) * lf7RecoverPercent);
+      const recoveredRevenue = Math.round(recoveredLeads * averageTicket);
+
+      // Trigger pop animations on numbers changing
+      updateWithPop('res-roi-lossrate', '-' + lossRate + '% de taxa de conversão');
+      updateWithPop('res-roi-lossrevenue', 'R$ ' + financialLoss.toLocaleString('pt-BR'));
+      updateWithPop('res-roi-recoveredrevenue', '+ R$ ' + recoveredRevenue.toLocaleString('pt-BR') + ' / Mês');
+      
+      const recoveredLeadsContainer = document.getElementById('res-roi-recoveredleads');
+      recoveredLeadsContainer.innerText = recoveredLeads + ' vendas mensais';
+      recoveredLeadsContainer.classList.remove('num-pop');
+      void recoveredLeadsContainer.offsetWidth; // Trigger reflow
+      recoveredLeadsContainer.classList.add('num-pop');
+    }
+
+    function updateWithPop(id, text) {
+      const el = document.getElementById(id);
+      el.innerText = text;
+      el.classList.remove('num-pop');
+      void el.offsetWidth; // Trigger reflow
+      el.classList.add('num-pop');
+    }
+
+    /* 7. Testimonials Carousel Data & Logic */
+    const testimonials = [
+      {
+        id: 1,
+        name: "Marcos Valadares",
+        role: "Sócio-Diretor da Valadares Advogados",
+        segment: "Advocacia Corporativa",
+        result: "+180% em Agendamentos Qualificados",
+        highlight: "Redução do tempo de resposta de 2 horas para 30 segundos",
+        rating: 5,
+        quote: "Antes da LF7, nossa equipe jurídica perdia metade do dia triando contatos desqualificados no WhatsApp. Com a automação inteligente da LF7, os clientes chegam com toda a documentação prévia entregue, prontos para a consulta. Reduzimos o tempo de resposta de forma drástica.",
+        image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200&h=200"
+      },
+      {
+        id: 2,
+        name: "Camila Schmidt",
+        role: "Proprietária da Schmidt Estética Avançada",
+        segment: "Clínica de Estética & Saúde",
+        result: "72% de Redução na Ociosidade de Agenda",
+        highlight: "Crescimento de 40% no faturamento em apenas 3 meses",
+        rating: 5,
+        quote: "O simulador conversacional e a IA estruturada mudaram o jogo na nossa clínica. A assistente virtual agenda as sessões, oferece retornos automáticos pós-procedimento e reativa clientes antigos de forma extremamente natural.",
+        image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200&h=200"
+      },
+      {
+        id: 3,
+        name: "Gustavo Rocha",
+        role: "Diretor Comercial do Grupo Rocha Imóveis",
+        segment: "Imobiliária & Construtora",
+        result: "-45% no Custo por Lead Qualificado",
+        highlight: "Integração nativa de IA com funil do RD Station",
+        rating: 5,
+        quote: "Integrar a LF7 com nosso CRM (RD Station) foi o melhor investimento que fizemos este ano. A IA faz a captação, qualifica o interesse e só passa para os nossos corretores os leads com real potencial de compra de imóveis de médio e alto padrão.",
+        image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=200"
+      },
+      {
+        id: 4,
+        name: "Renata Lins",
+        role: "Co-fundadora da CloudMetrics",
+        segment: "SaaS & Produto Digital",
+        result: "91% dos Contatos Iniciais Automatizados",
+        highlight: "Conversão final do funil de vendas saltou de 3% para 9.5%",
+        rating: 5,
+        quote: "A velocidade crítica de resposta é um diferencial no B2B. Com a LF7, o lead de tráfego pago recebe o primeiro diagnóstico em segundos e já direciona para o agendamento de chamadas comerciais. Aumento absurdo de produtividade.",
+        image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200&h=200"
+      }
+    ];
+
+    let currentTestimonialIdx = 0;
+    let autoplayTimer = null;
+    let isAutoplayPaused = false;
+
+    function renderTestimonial() {
+      const t = testimonials[currentTestimonialIdx];
+      const slide = document.getElementById('testimonial-slide');
+      
+      // Animate slide fade & translation shift
+      slide.classList.remove('opacity-100', 'translate-x-0');
+      slide.classList.add('opacity-0', 'translate-x-4');
+      
+      setTimeout(() => {
+        document.getElementById('t-segment').innerText = t.segment;
+        document.getElementById('t-result').innerText = t.result;
+        document.getElementById('t-highlight').innerText = t.highlight;
+        document.getElementById('t-name').innerText = t.name;
+        document.getElementById('t-role').innerText = t.role;
+        document.getElementById('t-quote').innerText = '“' + t.quote + '”';
+        document.getElementById('t-image').src = t.image;
+        document.getElementById('t-image').alt = t.name;
+
+        // Stars
+        const starsContainer = document.getElementById('t-stars');
+        starsContainer.innerHTML = '';
+        for (let i = 0; i < t.rating; i++) {
+          starsContainer.innerHTML += '<svg class="h-4 w-4 fill-[#C5A059] text-[#C5A059]" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>';
+        }
+
+        // Render Dots
+        const dotsContainer = document.getElementById('testimonial-dots');
+        dotsContainer.innerHTML = '';
+        testimonials.forEach((_, idx) => {
+          const isSelected = currentTestimonialIdx === idx;
+          const dotClass = isSelected 
+            ? 'w-8 bg-gradient-to-r from-[#C5A059] to-[#E5C384]' 
+            : 'w-2.5 bg-[#1A1A1C] hover:bg-[#71717A]/40';
+          dotsContainer.innerHTML += `<button onclick="jumpToTestimonial(${idx})" class="h-2.5 rounded-full cursor-pointer transition-all duration-300 ${dotClass}" aria-label="Slide ${idx+1}"></button>`;
+        });
+
+        slide.classList.remove('opacity-0', 'translate-x-4');
+        slide.classList.add('opacity-100', 'translate-x-0');
+      }, 200);
+    }
+
+    function nextTestimonial() {
+      isAutoplayPaused = true;
+      currentTestimonialIdx = (currentTestimonialIdx + 1) % testimonials.length;
+      renderTestimonial();
+    }
+
+    function prevTestimonial() {
+      isAutoplayPaused = true;
+      currentTestimonialIdx = (currentTestimonialIdx - 1 + testimonials.length) % testimonials.length;
+      renderTestimonial();
+    }
+
+    function jumpToTestimonial(idx) {
+      isAutoplayPaused = true;
+      currentTestimonialIdx = idx;
+      renderTestimonial();
+    }
+
+    function startTestimonialAutoplay() {
+      autoplayTimer = setInterval(() => {
+        if (!isAutoplayPaused) {
+          currentTestimonialIdx = (currentTestimonialIdx + 1) % testimonials.length;
+          renderTestimonial();
+        }
+      }, 8000);
+    }
+
+    // Setup testimonial hover pause
+    const cardEl = document.getElementById('testimonial-card');
+    cardEl.addEventListener('mouseenter', () => { isAutoplayPaused = true; });
+    cardEl.addEventListener('mouseleave', () => { isAutoplayPaused = false; });
+
+    /* 8. FAQ Accordion Logic */
+    function toggleFaq(idx) {
+      const answer = document.getElementById('faq-answer-' + idx);
+      const chevron = document.getElementById('faq-chevron-' + idx);
+      
+      const isOpen = answer.style.maxHeight && answer.style.maxHeight !== '0px';
+      
+      // Close all answers
+      for (let i = 0; i < 4; i++) {
+        document.getElementById('faq-answer-' + i).style.maxHeight = '0px';
+        document.getElementById('faq-chevron-' + i).classList.remove('rotate-180');
+      }
+
+      if (!isOpen) {
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        chevron.classList.add('rotate-180');
+      }
+    }
+
+    /* 9. Modal Policies Overlays */
+    function openModal(type) {
+      document.getElementById('modal-' + type).classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(type) {
+      document.getElementById('modal-' + type).classList.add('hidden');
+      document.body.style.overflow = 'auto';
+    }
+
+    /* 10. Initialization */
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateROI();
+      renderTestimonial();
+      startTestimonialAutoplay();
+    });
+  </script>
+</body>
+</html>

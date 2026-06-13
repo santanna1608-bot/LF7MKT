@@ -27,7 +27,11 @@ import {
   Briefcase,
   Layers,
   ChevronDown,
-  Building
+  Building,
+  Gauge,
+  Cpu,
+  Smartphone,
+  Search
 } from 'lucide-react';
 
 // Industry options for simulator
@@ -94,10 +98,55 @@ interface Message {
   text: string;
 }
 
+// Premium motion curves and spring configs
+const EASE_PREMIUM = [0.16, 1, 0.3, 1] as const; // Out-Expo curve
+
+const SPRING_PREMIUM = {
+  type: 'spring',
+  stiffness: 260,
+  damping: 26
+} as const;
+
+const SPRING_TACTILE = {
+  type: 'spring',
+  stiffness: 400,
+  damping: 15
+} as const;
+
+// Global animation variants for Stagger layouts
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1
+    }
+  }
+};
+
+const staggerItemReveal = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      ease: EASE_PREMIUM,
+      duration: 0.8
+    }
+  }
+};
+
 export default function Home() {
   // Mobile menu state
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
+  // Site Simulator states
+  const [siteAdSpend, setSiteAdSpend] = useState(3000);
+  const [siteLeadValue, setSiteLeadValue] = useState(1500);
+  const [isAnalyzingSpeed, setIsAnalyzingSpeed] = useState(false);
+  const [speedAnalyzed, setSpeedAnalyzed] = useState(false);
 
   // ROI Calculator states
   const [leadsCount, setLeadsCount] = useState(150);
@@ -295,58 +344,72 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
           
           {/* Logo / Brand */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollTo('hero')}>
-            <div className="h-9 w-9 bg-[#C5A059] flex items-center justify-center font-bold text-black text-xs tracking-wider transition-all duration-300 hover:bg-[#D4AF37]" id="hdr-logo">
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            transition={SPRING_TACTILE}
+            className="flex items-center gap-3 cursor-pointer" 
+            onClick={() => scrollTo('hero')}
+          >
+            <div className="h-9 w-9 bg-[#C5A059] flex items-center justify-center font-bold text-black text-xs tracking-wider transition-colors duration-300 hover:bg-[#D4AF37]" id="hdr-logo">
               LF7
             </div>
             <div className="flex flex-col">
               <span className="text-white font-extrabold text-base leading-none tracking-tight">LF7</span>
               <span className="text-[#C5A059] font-medium text-[9px] tracking-[0.18em] uppercase mt-0.5">Marketing & IA</span>
             </div>
-          </div>
+          </motion.div>
 
           {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-8 uppercase text-[11px] tracking-widest text-[#A1A1AA]">
-            <button onClick={() => scrollTo('pas-section')} className="hover:text-[#C5A059] transition-colors" id="nav-btn-dores">Dores do Mercado</button>
-            <button onClick={() => scrollTo('servicos')} className="hover:text-[#C5A059] transition-colors" id="nav-btn-servicos">Serviços</button>
-            <button onClick={() => scrollTo('simulator')} className="hover:text-[#C5A059] transition-colors" id="nav-btn-crm">Testar CRM IA</button>
-            <button onClick={() => scrollTo('roi-calculator')} className="hover:text-[#C5A059] transition-colors" id="nav-btn-roi">Calcular ROI</button>
-            <button onClick={() => scrollTo('faq')} className="hover:text-[#C5A059] transition-colors" id="nav-btn-faq">Dúvidas</button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('pas-section')} className="transition-colors cursor-pointer" id="nav-btn-dores">Dores do Mercado</motion.button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('servicos')} className="transition-colors cursor-pointer" id="nav-btn-servicos">Serviços</motion.button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('criacao-sites')} className="transition-colors cursor-pointer" id="nav-btn-sites">Sites de Elite</motion.button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('simulator')} className="transition-colors cursor-pointer" id="nav-btn-crm">Testar CRM IA</motion.button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('roi-calculator')} className="transition-colors cursor-pointer" id="nav-btn-roi">Calcular ROI</motion.button>
+            <motion.button whileHover={{ y: -1, color: '#C5A059' }} whileTap={{ scale: 0.96 }} onClick={() => scrollTo('faq')} className="transition-colors cursor-pointer" id="nav-btn-faq">Dúvidas</motion.button>
           </nav>
-
+ 
           {/* Header Action Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <a 
+            <motion.a 
+              whileHover={{ scale: 1.03, borderColor: 'rgba(197, 160, 89, 0.4)' }}
+              whileTap={{ scale: 0.96 }}
+              transition={SPRING_TACTILE}
               href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-[#1A1A1C] bg-[#0A0A0B] hover:border-[#C5A059]/40 text-[#E5E5E5] hover:text-white rounded-full px-5 py-3 text-[11px] font-bold uppercase tracking-widest transition-all"
+              className="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-full px-5 py-3 text-[11px] font-bold uppercase tracking-widest transition-all"
               id="header-cta-secondary"
             >
               Falar com Especialista
-            </a>
-            <button 
+            </motion.a>
+            <motion.button 
+              whileHover={{ scale: 1.03, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+              whileTap={{ scale: 0.96 }}
+              transition={SPRING_TACTILE}
               onClick={() => scrollTo('simulator')}
-              className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[11px] rounded-full px-5 py-3 transition-all hover:scale-[1.02]"
+              className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[11px] rounded-full px-5 py-3 transition-all cursor-pointer"
               id="header-cta"
             >
               Simular Negócio
-            </button>
+            </motion.button>
           </div>
-
+ 
           {/* Mobile hamburger icon */}
           <div className="md:hidden">
-            <button 
+            <motion.button 
+              whileTap={{ scale: 0.92 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
-              className="text-[#A1A1AA] hover:text-white p-2 focus:outline-none"
+              className="text-[#A1A1AA] hover:text-white p-2 focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
               id="mobile-menu-btn"
             >
               {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
+            </motion.button>
           </div>
         </div>
-
+ 
         {/* Mobile menu panel */}
         <AnimatePresence>
           {mobileMenuOpen && (
@@ -354,56 +417,84 @@ export default function Home() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
+              transition={{ ease: EASE_PREMIUM, duration: 0.5 }}
               className="md:hidden bg-[#0F0F12] border-b border-[#1A1A1C] overflow-hidden"
             >
-              <div className="px-4 pt-2 pb-6 space-y-3 flex flex-col uppercase text-[10px] tracking-widest text-[#A1A1AA]">
-                <button 
+              <motion.div 
+                variants={staggerContainer}
+                initial="hidden"
+                animate="visible"
+                className="px-4 pt-2 pb-6 space-y-3 flex flex-col uppercase text-[10px] tracking-widest text-[#A1A1AA]"
+              >
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setMobileMenuOpen(false); scrollTo('pas-section'); }}
-                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C]"
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
                 >
                   Dores do Mercado
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setMobileMenuOpen(false); scrollTo('servicos'); }}
-                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C]"
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
                 >
                   Serviços
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
+                  onClick={() => { setMobileMenuOpen(false); scrollTo('criacao-sites'); }}
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
+                >
+                  Sites de Elite
+                </motion.button>
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setMobileMenuOpen(false); scrollTo('simulator'); }}
-                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C]"
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
                 >
                   Testar CRM IA
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setMobileMenuOpen(false); scrollTo('roi-calculator'); }}
-                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C]"
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
                 >
                   Calcular ROI
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  variants={staggerItemReveal}
+                  whileTap={{ scale: 0.97 }}
                   onClick={() => { setMobileMenuOpen(false); scrollTo('faq'); }}
-                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C]"
+                  className="text-left hover:text-[#C5A059] py-2.5 border-b border-[#1A1A1C] cursor-pointer w-full"
                 >
                   Dúvidas
-                </button>
-                <div className="pt-4 flex flex-col gap-3">
-                  <a 
+                </motion.button>
+                <motion.div variants={staggerItemReveal} className="pt-4 flex flex-col gap-3">
+                  <motion.a 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.96 }}
                     href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consultoria%20com%20a%20LF7!"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="border border-[#1A1A1C] bg-[#0A0A0B] text-[#E5E5E5] hover:text-white rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest inline-block"
                   >
                     Atendimento WhatsApp
-                  </a>
-                  <button 
+                  </motion.a>
+                  <motion.button 
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.96 }}
                     onClick={() => { setMobileMenuOpen(false); scrollTo('simulator'); }}
-                    className="bg-[#C5A059] text-black rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest"
+                    className="bg-[#C5A059] text-black rounded-full py-3.5 text-center text-[10px] font-bold uppercase tracking-widest cursor-pointer w-full"
                   >
                     Iniciar Teste CRM IA
-                  </button>
-                </div>
-              </div>
+                  </motion.button>
+                </motion.div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
@@ -411,31 +502,43 @@ export default function Home() {
 
       {/* 1. Hero Section */}
       <section id="hero" className="relative pt-32 pb-24 md:pt-44 md:pb-32 overflow-hidden border-b border-[#1A1A1C]">
-        {/* Background Video */}
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        {/* Background Video with Zoom-out Cinemático */}
+        <motion.div 
+          initial={{ scale: 1.08, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.6, ease: EASE_PREMIUM }}
           className="absolute inset-0 w-full h-full object-cover z-0 pointer-events-none"
         >
-          <source src="https://res.cloudinary.com/dq3cmyhmo/video/upload/v1779901029/Desloque_imagem_para_direita_202605271230_njlazn.mp4" type="video/mp4" />
-        </video>
-
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://res.cloudinary.com/dq3cmyhmo/video/upload/v1779901029/Desloque_imagem_para_direita_202605271230_njlazn.mp4" type="video/mp4" />
+          </video>
+        </motion.div>
+ 
         {/* Subtle semi-transparent overlay to ensure text readability */}
         <div className="absolute inset-0 bg-[#0A0A0B]/60 z-0 pointer-events-none"></div>
-
+ 
         {/* Subtle Luxury Ambient Background lines or glow */}
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5A059]/5 rounded-full blur-[140px] pointer-events-none"></div>
-
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.2 }}
+          className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5A059]/5 rounded-full blur-[140px] pointer-events-none"
+        ></motion.div>
+ 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-left max-w-4xl mr-auto">
             
             {/* Elegant luxury floating badge */}
             <motion.div 
-              initial={{ opacity: 0, y: -20 }}
+              initial={{ opacity: 0, y: -25 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={SPRING_PREMIUM}
               className="inline-flex items-center gap-2 bg-[#C5A059]/10 text-[#C5A059] border border-[#C5A059]/30 rounded-full px-4 py-1.5 mb-8 shadow-inner"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-[#C5A059] animate-pulse"></div>
@@ -443,12 +546,12 @@ export default function Home() {
                 ARQUITETURA DE ALTA CONVERSÃO B2B
               </span>
             </motion.div>
-
+ 
             {/* Main Editorial Headline */}
             <motion.h1 
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ ease: EASE_PREMIUM, duration: 0.9, delay: 0.15 }}
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-light text-white tracking-tight leading-[1.12] mb-6"
             >
               <span className="text-[#C5A059]">Escale</span> sua conversão e recupere leads no{' '}
@@ -456,42 +559,55 @@ export default function Home() {
                 Piloto Automático.
               </span>
             </motion.h1>
-
+ 
             {/* Sub-headline focused on pain */}
             <motion.p 
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              transition={{ ease: EASE_PREMIUM, duration: 0.9, delay: 0.25 }}
               className="text-[#A1A1AA] text-base sm:text-lg md:text-xl font-light mb-12 max-w-3xl leading-relaxed"
             >
               Diga adeus ao vazamento de recursos. Construímos <strong className="text-white font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em 3 segundos, integrando sites de elite e campanhas corporativas focadas em ROI.
             </motion.p>
-
+ 
             {/* CTAs */}
             <motion.div 
-              initial={{ opacity: 0, y: 15 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ ease: EASE_PREMIUM, duration: 0.9, delay: 0.35 }}
               className="flex flex-col sm:flex-row items-stretch sm:items-center justify-start gap-4 max-w-md sm:max-w-none"
             >
-              <a 
+              <motion.a 
+                initial="initial"
+                whileHover="hover"
+                whileTap={{ scale: 0.96 }}
+                transition={SPRING_TACTILE}
                 href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20gratuito!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-[#C5A059] hover:bg-[#D4AF37] text-black rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300 flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-[#C5A059] hover:bg-[#D4AF37] text-black rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs flex items-center justify-center gap-2 cursor-pointer"
                 id="hero-primary-cta"
               >
                 <span>Falar com especialista</span>
-                <ArrowRight className="h-4 w-4 text-black" />
-              </a>
-
-              <button 
+                <motion.span 
+                  variants={{ hover: { x: 4 }, initial: { x: 0 } }}
+                  transition={SPRING_TACTILE}
+                  className="flex items-center"
+                >
+                  <ArrowRight className="h-4 w-4 text-black" />
+                </motion.span>
+              </motion.a>
+ 
+              <motion.button 
+                whileHover={{ scale: 1.02, borderColor: 'rgba(197, 160, 89, 0.4)', backgroundColor: '#121215' }}
+                whileTap={{ scale: 0.96 }}
+                transition={SPRING_TACTILE}
                 onClick={() => scrollTo('simulator')}
-                className="w-full sm:w-auto bg-[#0F0F12] hover:bg-[#121215] text-[#E5E5E5] border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-all duration-300"
+                className="w-full sm:w-auto bg-[#0F0F12] text-[#E5E5E5] border border-[#1A1A1C] rounded-full px-8 py-4.5 font-bold uppercase tracking-widest text-xs transition-colors cursor-pointer"
                 id="hero-secondary-cta"
               >
                 <span>Testar Simulador de CRM</span>
-              </button>
+              </motion.button>
             </motion.div>
 
             {/* Trust Banner */}
@@ -499,7 +615,7 @@ export default function Home() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="mt-20 pt-12 border-t border-[#1A1A1C] flex flex-wrap justify-start items-center gap-x-12 gap-y-6 text-[#71717A] font-mono text-[10px] tracking-[0.25em]"
+              className="mt-20 pt-12 border-t border-[#1A1A1C] flex flex-wrap justify-start items-center gap-x-6 sm:gap-x-12 gap-y-4 sm:gap-y-6 text-[#D4D4D8] hover:text-white transition-colors duration-300 font-mono text-[10px] tracking-[0.25em]"
             >
               <span>✨ CONVERSÃO DE ELITE</span>
               <span>⚡ ATENDIMENTO EM 3 SEGUNDOS</span>
@@ -521,16 +637,21 @@ export default function Home() {
             </p>
           </div>
 
-          {/* PAS - Dores Columns */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* PAS - Dores Columns in Stagger Cascade */}
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
             
             {/* Problema 1: Contatos Esfriando */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 transition-colors flex flex-col justify-between rounded-xl"
             >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">01</h3>
@@ -543,14 +664,13 @@ export default function Home() {
                 <Clock className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Investimento em tráfego desperdiçado
               </div>
             </motion.div>
-
+ 
             {/* Problema 2: Site sem Credibilidade */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 transition-colors flex flex-col justify-between rounded-xl"
             >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">02</h3>
@@ -563,14 +683,13 @@ export default function Home() {
                 <Globe className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Perda de autoridade e credibilidade digital
               </div>
             </motion.div>
-
+ 
             {/* Problema 3: Orçamento de Tráfego Queimado */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] border border-[#1A1A1C] p-8 hover:border-[#C5A059]/40 transition-all duration-300 flex flex-col justify-between"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#121215] border border-[#1A1A1C] p-8 transition-colors flex flex-col justify-between rounded-xl"
             >
               <div>
                 <h3 className="text-[#C5A059] font-serif italic text-2xl mb-4">03</h3>
@@ -583,16 +702,17 @@ export default function Home() {
                 <TrendingUp className="h-3.5 w-3.5 text-[#C5A059]" /> AGITAÇÃO: Equipe comercial sobrecarregada com curiosos
               </div>
             </motion.div>
-
-          </div>
-
+ 
+          </motion.div>
+ 
           {/* LF7 Solution Banner */}
           <motion.div 
             initial={{ opacity: 0, scale: 0.98, y: 20 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-16 bg-[#121215] border border-[#1A1A1C] p-8 sm:p-12 relative overflow-hidden"
+            transition={{ duration: 0.8, ease: EASE_PREMIUM }}
+            whileHover={{ scale: 1.005, borderColor: 'rgba(197, 160, 89, 0.2)' }}
+            className="mt-16 bg-[#121215] border border-[#1A1A1C] p-8 sm:p-12 relative overflow-hidden rounded-xl"
           >
             <div className="absolute top-0 right-0 w-48 h-48 bg-[#C5A059]/5 rounded-full blur-3xl pointer-events-none"></div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
@@ -604,16 +724,19 @@ export default function Home() {
                   Como a LF7 resolve de ponta a ponta
                 </h3>
                 <p className="text-[#A1A1AA] text-sm leading-relaxed">
-                  Não criamos apenas sites ou anúncios soltos. Implementamos um <strong className="text-white font-semibold">Ecossistema Completo de Vendas Automatizadas</strong>. Construímos campanhas de anúncios persuasivas que atraem clientes com alta intenção de compra, encaminhamos para sites de elite ultrarrápidos e qualificamos cada contato instantaneamente com Inteligência Artificial, agendando reuniões diretamente na sua agenda comercial.
+                  Não criamos apenas sites ou anúncios soltos. Implementamos um <strong className="text-white font-semibold">Ecossistema Completo de Vendas Automatizadas</strong>. Construímos campanhas de anúncios persuasivas que atraem clientes com alta intenção de compra, encaminhamos para sites de elite ultrarrápidos e qualificais cada contato instantaneamente com Inteligência Artificial, agendando reuniões diretamente na sua agenda comercial.
                 </p>
               </div>
-              <div className="lg:col-span-4 flex justify-end">
-                <button 
+              <div className="lg:col-span-4 flex justify-start lg:justify-end">
+                <motion.button 
+                  whileHover={{ scale: 1.03, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+                  whileTap={{ scale: 0.96 }}
+                  transition={SPRING_TACTILE}
                   onClick={() => scrollTo('simulator')}
-                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-xs py-4 px-8 w-full lg:w-fit transition-all hover:scale-[1.02]"
+                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-xs py-4 px-8 w-full lg:w-fit cursor-pointer"
                 >
                   Ver LF7 na Prática &rarr;
-                </button>
+                </motion.button>
               </div>
             </div>
           </motion.div>
@@ -665,15 +788,20 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-8"
+          >
             
             {/* Pilar 1: WhatsApp IA */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-colors rounded-xl"
             >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
@@ -705,14 +833,13 @@ export default function Home() {
                 <span>BENEFÍCIO: Abordagem instantânea que elimina o tempo de resposta lento</span>
               </div>
             </motion.div>
-
+ 
             {/* Pilar 2: Criação de Sites */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-colors rounded-xl"
             >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
@@ -744,14 +871,13 @@ export default function Home() {
                 <span>BENEFÍCIO: Máxima credibilidade digital instantânea corporativa</span>
               </div>
             </motion.div>
-
+ 
             {/* Pilar 3: Gestão de Tráfego */}
             <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between hover:border-[#C5A059]/40 transition-all duration-300"
+              variants={staggerItemReveal}
+              whileHover={{ y: -8, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 20px 30px rgba(197, 160, 89, 0.05)' }}
+              transition={SPRING_TACTILE}
+              className="bg-[#0F0F12] border border-[#1A1A1C] p-8 flex flex-col justify-between transition-colors rounded-xl"
             >
               <div>
                 <div className="h-12 w-12 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] mb-8 font-serif italic text-xl">
@@ -783,9 +909,428 @@ export default function Home() {
                 <span>BENEFÍCIO: Escoamento de leads refinados com intenção real de compra</span>
               </div>
             </motion.div>
-
-          </div>
+ 
+          </motion.div>
         </div>
+      </section>
+
+      {/* Seção Temática de Criação de Sites de Elite */}
+      <section id="criacao-sites" className="py-24 bg-gradient-to-b from-[#0A0A0B] via-[#121215] to-[#0A0A0B] border-b border-[#1A1A1C] relative overflow-hidden">
+        {/* Premium background glows */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-[20%] right-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(197,160,89,0.05)_0%,transparent_60%)]" />
+          <div className="absolute bottom-[20%] left-[10%] w-[400px] h-[400px] bg-[radial-gradient(circle_at_center,rgba(229,195,132,0.03)_0%,transparent_60%)]" />
+        </div>
+
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+        >
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Text details / Attributes */}
+            <motion.div variants={staggerItemReveal} className="lg:col-span-5 text-left">
+              <span className="text-[#C5A059] font-mono text-xs uppercase tracking-[0.25em] mb-4 block">
+                Engenharia Web de Alta Conversão
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-serif font-light text-white tracking-tight leading-tight mb-6">
+                Desenvolvemos <span className="text-[#C5A059] italic font-normal">Sites de Elite</span> que vendem 24h por dia.
+              </h2>
+              <p className="text-[#A1A1AA] text-sm sm:text-base font-light leading-relaxed mb-8">
+                Seu site não deve ser apenas um cartão de visitas digital. Desenvolvemos ecossistemas web sob medida com tecnologias de ponta como Next.js, React e Tailwind CSS, otimizados para velocidade extrema, conversão imediata de leads e SEO de alta performance.
+              </p>
+ 
+              {/* Feature list */}
+              <div className="space-y-6">
+                <motion.div 
+                  whileHover={{ x: 6 }} 
+                  transition={SPRING_TACTILE}
+                  className="flex gap-4 cursor-default"
+                >
+                  <div className="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                    <Gauge className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-1">Velocidade Crítica (PageSpeed 95+)</h4>
+                    <p className="text-[#A1A1AA] text-xs leading-relaxed">
+                      Código otimizado e imagens compactadas para carregamento em menos de 1 segundo. Cada milissegundo a menos aumenta sua conversão.
+                    </p>
+                  </div>
+                </motion.div>
+ 
+                <motion.div 
+                  whileHover={{ x: 6 }} 
+                  transition={SPRING_TACTILE}
+                  className="flex gap-4 cursor-default"
+                >
+                  <div className="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                    <Smartphone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-1">Design Ultra Responsivo & Premium</h4>
+                    <p className="text-[#A1A1AA] text-xs leading-relaxed">
+                      Experiência de navegação impecável em qualquer dispositivo, transmitindo o prestígio e a credibilidade que seu negócio merece.
+                    </p>
+                  </div>
+                </motion.div>
+ 
+                <motion.div 
+                  whileHover={{ x: 6 }} 
+                  transition={SPRING_TACTILE}
+                  className="flex gap-4 cursor-default"
+                >
+                  <div className="h-10 w-10 shrink-0 bg-[#C5A059]/10 border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059]">
+                    <Search className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-1">SEO & Tráfego Orgânico Nativo</h4>
+                    <p className="text-[#A1A1AA] text-xs leading-relaxed">
+                      Estruturação de tags, schemas e metadados para que seu site seja encontrado facilmente pelos mecanismos de busca como o Google.
+                    </p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+ 
+            {/* Interactive Speed & Bounce Simulator */}
+            <motion.div 
+              variants={staggerItemReveal}
+              whileHover={{ borderColor: 'rgba(197, 160, 89, 0.25)', boxShadow: '0 15px 30px rgba(197, 160, 89, 0.02)' }}
+              transition={SPRING_PREMIUM}
+              className="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] p-6 sm:p-8 relative rounded-xl overflow-hidden"
+            >
+              <div className="absolute top-px left-px right-px h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-[11px]"></div>
+              
+              <div className="mb-6 flex justify-between items-center">
+                <div>
+                  <h3 className="text-lg font-serif text-white flex items-center gap-2">
+                    <Cpu className="h-4 w-4 text-[#C5A059]" />
+                    Simulador de Impacto de Velocidade
+                  </h3>
+                  <p className="text-[10px] text-[#71717A] font-mono mt-1 uppercase tracking-wider">Mapeamento de Rejeição & Tráfego Perdido</p>
+                </div>
+                {speedAnalyzed && (
+                  <motion.button 
+                    whileHover={{ scale: 1.05, borderColor: 'rgba(197, 160, 89, 0.4)' }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => { setSpeedAnalyzed(false); }}
+                    className="text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[9px] font-bold py-1.5 px-4 border border-[#1A1A1C] rounded-full transition-colors uppercase tracking-wider font-mono bg-[#0F0F12] cursor-pointer"
+                  >
+                    <RotateCcw className="h-3 w-3" /> Reiniciar
+                  </motion.button>
+                )}
+              </div>
+ 
+              {!speedAnalyzed && !isAnalyzingSpeed && (
+                <div className="space-y-6">
+                  <div className="bg-[#0F0F12] p-4 border border-[#1A1A1C] text-xs text-[#A1A1AA] leading-relaxed flex gap-3">
+                    <Sparkles className="h-5 w-5 text-[#C5A059] shrink-0" />
+                    <span>A lentidão de um site é o maior ladrão de clientes invisível do mercado digital. Ajuste os sliders de investimento abaixo e simule o impacto real de velocidade no seu faturamento.</span>
+                  </div>
+ 
+                  <div className="space-y-6">
+                    <div>
+                      <div className="flex justify-between text-[10px] font-mono mb-2">
+                        <span className="text-[#A1A1AA] uppercase tracking-wider font-bold">Investimento Mensal em Tráfego (Anúncios)</span>
+                        <span className="text-[#C5A059] font-extrabold">R$ {siteAdSpend.toLocaleString('pt-BR')}</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="1000" 
+                        max="50000" 
+                        step="1000"
+                        value={siteAdSpend} 
+                        onChange={(e) => setSiteAdSpend(Number(e.target.value))}
+                        className="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]"
+                      />
+                    </div>
+ 
+                    <div>
+                      <div className="flex justify-between text-[10px] font-mono mb-2">
+                        <span className="text-[#A1A1AA] uppercase tracking-wider font-bold">Valor Estimado do Cliente / Venda</span>
+                        <span className="text-[#C5A059] font-extrabold">R$ {siteLeadValue.toLocaleString('pt-BR')}</span>
+                      </div>
+                      <input 
+                        type="range" 
+                        min="500" 
+                        max="10000" 
+                        step="500"
+                        value={siteLeadValue} 
+                        onChange={(e) => setSiteLeadValue(Number(e.target.value))}
+                        className="w-full h-1 bg-[#0F0F12] rounded-none appearance-none cursor-pointer accent-[#C5A059]"
+                      />
+                    </div>
+                  </div>
+ 
+                  <motion.button 
+                    whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={SPRING_TACTILE}
+                    onClick={() => {
+                      setIsAnalyzingSpeed(true);
+                      setTimeout(() => {
+                        setIsAnalyzingSpeed(false);
+                        setSpeedAnalyzed(true);
+                      }, 1500);
+                    }}
+                    className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer"
+                  >
+                    <Play className="h-4 w-4 fill-black text-black" /> Simular Impacto de Velocidade
+                  </motion.button>
+                </div>
+              )}
+ 
+              {isAnalyzingSpeed && (
+                <div className="py-16 text-center space-y-4">
+                  <div className="relative w-16 h-16 mx-auto">
+                    <div className="absolute inset-0 rounded-full border-4 border-[#C5A059]/20 border-t-[#C5A059] animate-spin"></div>
+                  </div>
+                  <p className="text-xs font-mono text-[#C5A059] animate-pulse uppercase tracking-widest">
+                    Analisando largura de banda e tempos de resposta do servidor...
+                  </p>
+                </div>
+              )}
+ 
+              {speedAnalyzed && (
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    
+                    {/* Site Tradicional card */}
+                    <div className="bg-[#0F0F12] border border-red-500/20 p-4 relative rounded-xl flex flex-col justify-between">
+                      <div className="absolute top-0 right-0 bg-red-950/40 border border-red-500/30 text-red-400 text-[8px] font-mono px-2 py-0.5 uppercase tracking-wider font-bold">
+                        Comum Lento
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3">Site Tradicional Lento</h4>
+                        
+                        {/* PageSpeed Ring */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <motion.div 
+                            initial={{ scale: 0.6, rotate: -45 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={SPRING_PREMIUM}
+                            className="h-10 w-10 rounded-full border-2 border-red-500/30 border-t-red-500 flex items-center justify-center text-xs font-mono font-bold text-red-500"
+                          >
+                            38%
+                          </motion.div>
+                          <div>
+                            <div className="text-[10px] text-[#71717A] font-mono uppercase">Carregamento</div>
+                            <div className="text-sm font-bold text-red-500">5.4 segundos</div>
+                          </div>
+                        </div>
+ 
+                        <ul className="space-y-2 text-[11px] text-[#A1A1AA] mb-4">
+                          <li className="flex items-center gap-1.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                            Taxa de Rejeição: <strong className="text-white font-semibold">68%</strong>
+                          </li>
+                          <li className="flex items-center gap-1.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+                            Cliques Perdidos: <strong className="text-white font-semibold">{Math.round((siteAdSpend / 3) * 0.68)} / mês</strong>
+                          </li>
+                        </ul>
+                      </div>
+ 
+                      <div className="border-t border-[#1A1A1C] pt-3 mt-3">
+                        <div className="text-[9px] text-[#71717A] font-mono uppercase mb-0.5">Verba Jogada no Lixo:</div>
+                        <div className="text-base font-bold text-red-400">R$ {Math.round(siteAdSpend * 0.68).toLocaleString('pt-BR')}</div>
+                      </div>
+                    </div>
+ 
+                    {/* Site LF7 de Elite card */}
+                    <div className="bg-[#0F0F12] border border-[#C5A059]/30 p-4 relative rounded-xl flex flex-col justify-between">
+                      <div className="absolute top-0 right-0 bg-[#C5A059]/10 text-[#C5A059] text-[8px] font-mono px-2 py-0.5 uppercase tracking-wider font-bold border border-[#C5A059]/30">
+                        LF7 Web Engine
+                      </div>
+                      <div>
+                        <h4 className="text-xs font-bold text-white uppercase tracking-wider mb-3">Site LF7 de Elite</h4>
+                        
+                        {/* PageSpeed Ring */}
+                        <div className="flex items-center gap-3 mb-4">
+                          <motion.div 
+                            initial={{ scale: 0.6, rotate: -45 }}
+                            animate={{ scale: 1, rotate: 0 }}
+                            transition={SPRING_PREMIUM}
+                            className="h-10 w-10 rounded-full border-2 border-[#C5A059]/20 border-t-[#C5A059] flex items-center justify-center text-xs font-mono font-bold text-[#C5A059]"
+                          >
+                            98%
+                          </motion.div>
+                          <div>
+                            <div className="text-[10px] text-[#71717A] font-mono uppercase">Carregamento</div>
+                            <div className="text-sm font-bold text-[#C5A059]">0.7 segundos</div>
+                          </div>
+                        </div>
+ 
+                        <ul className="space-y-2 text-[11px] text-[#A1A1AA] mb-4">
+                          <li className="flex items-center gap-1.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]" />
+                            Taxa de Rejeição: <strong className="text-[#C5A059] font-semibold">3%</strong>
+                          </li>
+                          <li className="flex items-center gap-1.5">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#C5A059]" />
+                            Cliques Aproveitados: <strong className="text-white font-semibold">97%</strong>
+                          </li>
+                        </ul>
+                      </div>
+ 
+                      <div className="border-t border-[#1A1A1C] pt-3 mt-3">
+                        <div className="text-[9px] text-[#71717A] font-mono uppercase mb-0.5">Recuperação de Mídia:</div>
+                        <div className="text-base font-bold text-[#C5A059]">R$ {Math.round(siteAdSpend * 0.65).toLocaleString('pt-BR')}</div>
+                      </div>
+                    </div>
+ 
+                  </div>
+ 
+                  {/* Total impact assessment */}
+                  <div className="bg-gradient-to-r from-[#0F0F12] to-[#C5A059]/10 p-5 border border-[#C5A059]/20 rounded-xl">
+                    <div className="text-[9px] font-mono uppercase tracking-[0.16em] text-[#C5A059] font-bold">
+                      Faturamento Adicional Estimado / Mês
+                    </div>
+                    <div className="text-xl sm:text-2xl font-serif text-white mt-1.5">
+                      + R$ {Math.round(((siteAdSpend / 3) * (0.65) * 0.04) * siteLeadValue).toLocaleString('pt-BR')} / Mês
+                    </div>
+                    <p className="text-[11px] text-[#A1A1AA] mt-2 leading-relaxed">
+                      Ao reduzir o tempo de carregamento para menos de 1s, você estanca o desperdício de anúncios. Considerando cliques adicionais retidos e taxa média de conversão final de 4%, você recupera cerca de <strong className="text-white font-bold">{Math.round((siteAdSpend / 3) * 0.65 * 0.04)} vendas por mês</strong>.
+                    </p>
+                  </div>
+                  
+                  <motion.button 
+                    whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+                    whileTap={{ scale: 0.96 }}
+                    transition={SPRING_TACTILE}
+                    onClick={() => scrollTo('form-leads')}
+                    className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer"
+                  >
+                    Construir Meu Site De Elite Agora &rarr;
+                  </motion.button>
+                </div>
+              )}
+ 
+            </motion.div>
+          </div>
+ 
+          {/* Showcase de Mockups Web de Elite */}
+          <div className="mt-20 pt-16 border-t border-[#1A1A1C]">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <h3 className="text-xl sm:text-2xl font-serif font-light text-white tracking-tight">
+                Galeria de Conceitos: <span className="text-[#C5A059] italic font-normal">Arquiteturas de Conversão</span>
+              </h3>
+              <p className="text-[#A1A1AA] text-xs sm:text-sm font-light mt-2">
+                Veja o nível de acabamento estético e design que construímos para cada segmento.
+              </p>
+            </div>
+ 
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
+              {/* Mockup 1: Don Giovanni */}
+              <motion.div 
+                whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
+                transition={SPRING_TACTILE}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
+              >
+                {/* Browser bar */}
+                <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">dongiovanni.netlify.app</div>
+                </div>
+                {/* Mock Content */}
+                <a 
+                  href="https://dongiovanni.netlify.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                >
+                  <div>
+                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
+                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
+                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                      Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
+                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  </div>
+                </a>
+              </motion.div>
+ 
+              {/* Mockup 2: Clínica Gizele Cabral */}
+              <motion.div 
+                whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
+                transition={SPRING_TACTILE}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
+              >
+                {/* Browser bar */}
+                <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-gizele-cabral.vercel.app</div>
+                </div>
+                {/* Mock Content */}
+                <a 
+                  href="https://clinica-gizele-cabral.vercel.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                >
+                  <div>
+                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
+                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Gizele Cabral • Estética</h4>
+                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                      Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
+                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  </div>
+                </a>
+              </motion.div>
+ 
+              {/* Mockup 3: Sr. Urso */}
+              <motion.div 
+                whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
+                transition={SPRING_TACTILE}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
+              >
+                {/* Browser bar */}
+                <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">sr-urso.vercel.app</div>
+                </div>
+                {/* Mock Content */}
+                <a 
+                  href="https://sr-urso.vercel.app" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                >
+                  <div>
+                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
+                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
+                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                      Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
+                    </p>
+                  </div>
+                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
+                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  </div>
+                </a>
+              </motion.div>
+            </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Interactive Segment Area - CRM e Automação */}
@@ -807,22 +1352,26 @@ export default function Home() {
           <div className="space-y-12">
             
             {/* Interactive Tab Controls */}
-            <div className="flex justify-center">
-              <div className="bg-[#121215] p-1.5 rounded-full border border-[#1A1A1C] flex gap-2">
-                <button 
+            <div className="flex justify-center w-full">
+              <div className="bg-[#121215] p-1.5 rounded-3xl sm:rounded-full border border-[#1A1A1C] flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
+                <motion.button 
+                  whileHover={{ scale: 1.03, boxShadow: '0 0 10px rgba(197, 160, 89, 0.2)' }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => scrollTo('simulator')}
-                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-full px-6 py-3 flex items-center gap-2 transition-all shadow-md"
+                  className="bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-2xl sm:rounded-full px-4 sm:px-6 py-3.5 sm:py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer w-full sm:w-auto text-center"
                   id="tab-btn-sim"
                 >
                   <Bot className="h-3.5 w-3.5" /> 1. Simulador de CRM Inteligente
-                </button>
-                <button 
+                </motion.button>
+                <motion.button 
+                  whileHover={{ scale: 1.03, color: '#ffffff' }}
+                  whileTap={{ scale: 0.96 }}
                   onClick={() => scrollTo('roi-calculator')}
-                  className="hover:text-white text-[#A1A1AA] font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-full px-6 py-3 flex items-center gap-2 transition-all"
+                  className="hover:text-white text-[#A1A1AA] font-bold uppercase tracking-widest text-[10px] sm:text-xs rounded-2xl sm:rounded-full px-4 sm:px-6 py-3.5 sm:py-3 flex items-center justify-center gap-2 transition-colors cursor-pointer w-full sm:w-auto text-center"
                   id="tab-btn-roi"
                 >
                   <DollarSign className="h-3.5 w-3.5 text-[#C5A059]" /> 2. Calculadora de ROI
-                </button>
+                </motion.button>
               </div>
             </div>
 
@@ -836,7 +1385,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8 relative"
+                className="lg:col-span-7 bg-[#121215] border border-[#1A1A1C] rounded-xl p-6 sm:p-8 relative"
               >
                 
                 {/* Header of CRM widget */}
@@ -852,22 +1401,24 @@ export default function Home() {
                     <p className="text-[10px] text-[#71717A] font-mono mt-1 uppercase tracking-wider">Interface Integrada de WhatsApp IA</p>
                   </div>
                   {simulationStep > 0 && (
-                    <button 
+                    <motion.button 
+                      whileHover={{ scale: 1.05, color: '#C5A059' }}
+                      whileTap={{ scale: 0.95 }}
                       onClick={resetSimulator}
-                      className="text-[#A1A1AA] hover:text-[#C5A059] flex items-center gap-1.5 text-[10px] font-bold py-1.5 px-4 border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-full transition-all uppercase tracking-wider font-mono bg-[#0F0F12]"
+                      className="text-[#A1A1AA] flex items-center gap-1.5 text-[10px] font-bold py-1.5 px-4 border border-[#1A1A1C] hover:border-[#C5A059]/40 rounded-full transition-colors uppercase tracking-wider font-mono bg-[#0F0F12] cursor-pointer"
                     >
                       <RotateCcw className="h-3 w-3" /> Reiniciar
-                    </button>
+                    </motion.button>
                   )}
                 </div>
-
+ 
                 {simulationStep === 0 && (
                   <form onSubmit={handleStartSimulation} className="space-y-6">
                     <div className="bg-[#0F0F12] p-4 border border-[#1A1A1C] text-xs text-[#A1A1AA] leading-relaxed mb-2 flex gap-3">
                       <Sparkles className="h-5 w-5 text-[#C5A059] shrink-0" />
                       <span>Insira suas informações abaixo. Nosso motor inteligente executará uma chamada de IA baseada no Gemini para formular o roteiro e encenar o fluxo completo.</span>
                     </div>
-
+ 
                     <div>
                       <label className="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Nome da Empresa Comercial *</label>
                       <input 
@@ -879,7 +1430,7 @@ export default function Home() {
                         className="w-full bg-[#0F0F12] border border-[#1A1A1C] focus:border-[#C5A059] rounded-lg px-4 py-3.5 text-sm text-white focus:outline-none focus:ring-1 focus:ring-[#C5A059]/50 transition-all"
                       />
                     </div>
-
+ 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Segmento Operacional</label>
@@ -893,7 +1444,7 @@ export default function Home() {
                           ))}
                         </select>
                       </div>
-
+ 
                       <div>
                         <label className="block text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-2">Dificuldade Atual</label>
                         <input 
@@ -905,49 +1456,88 @@ export default function Home() {
                         />
                       </div>
                     </div>
-
-                    <button 
+ 
+                    <motion.button 
+                      whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+                      whileTap={{ scale: 0.96 }}
+                      transition={SPRING_TACTILE}
                       type="submit"
-                      className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-all text-xs uppercase tracking-widest"
+                      className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold py-4 rounded-full text-center flex items-center justify-center gap-2 transition-colors text-xs uppercase tracking-widest cursor-pointer"
                       id="submit-simular"
                     >
                       <Play className="h-4 w-4 fill-black text-black" /> Construir Estratégia de IA
-                    </button>
+                    </motion.button>
                   </form>
                 )}
-
+ 
                 {simulationStep >= 1 && (
                   <div className="space-y-6">
                     {/* Kanban Simulator */}
                     <div>
                       <h4 className="text-[10px] font-mono font-bold text-[#A1A1AA] uppercase tracking-wider mb-3">Status do Lead no CRM da LF7:</h4>
-                      <div className="grid grid-cols-4 gap-2 text-center text-[9px] sm:text-xs">
+                      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center text-[9px] sm:text-xs">
                         
-                        <div className={`p-2.5 rounded-none border transition-all ${crmColumn === 'captured' ? 'bg-[#C5A059]/10 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
+                        <div className={`p-2.5 rounded-xl border transition-all ${crmColumn === 'captured' ? 'bg-[#C5A059]/10 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
                           <div className="truncate font-mono font-bold">1. CAPTURADO</div>
-                          {crmColumn === 'captured' && <div className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block">Formulário Entrou</div>}
+                          {crmColumn === 'captured' && (
+                            <motion.div 
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={SPRING_TACTILE}
+                              className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block"
+                            >
+                              Formulário Entrou
+                            </motion.div>
+                          )}
                         </div>
-
-                        <div className={`p-2.5 rounded-none border transition-all ${crmColumn === 'qualifying' ? 'bg-[#C5A059]/15 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
+ 
+                        <div className={`p-2.5 rounded-xl border transition-all ${crmColumn === 'qualifying' ? 'bg-[#C5A059]/15 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
                           <div className="truncate font-mono font-bold">2. TRIAREM IA</div>
-                          {crmColumn === 'qualifying' && <div className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block animate-pulse">Avaliando Perfil</div>}
+                          {crmColumn === 'qualifying' && (
+                            <motion.div 
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={SPRING_TACTILE}
+                              className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block animate-pulse"
+                            >
+                              Avaliando Perfil
+                            </motion.div>
+                          )}
                         </div>
-
-                        <div className={`p-2.5 rounded-none border transition-all ${crmColumn === 'hot' ? 'bg-[#C5A059]/20 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
+ 
+                        <div className={`p-2.5 rounded-xl border transition-all ${crmColumn === 'hot' ? 'bg-[#C5A059]/20 border-[#C5A059] text-[#C5A059] font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
                           <div className="truncate font-mono font-bold">3. QUALIFICADO</div>
-                          {crmColumn === 'hot' && <div className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block animate-pulse font-mono">Agente Pronto</div>}
+                          {crmColumn === 'hot' && (
+                            <motion.div 
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={SPRING_TACTILE}
+                              className="mt-1 text-[8px] sm:text-[9px] bg-[#C5A059] text-black font-sans py-0.5 px-1.5 rounded-none inline-block animate-pulse font-mono"
+                            >
+                              Agente Pronto
+                            </motion.div>
+                          )}
                         </div>
-
-                        <div className={`p-2.5 rounded-none border transition-all ${crmColumn === 'scheduled' ? 'bg-emerald-950/40 border-emerald-500 text-emerald-300 font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
+ 
+                        <div className={`p-2.5 rounded-xl border transition-all ${crmColumn === 'scheduled' ? 'bg-emerald-950/40 border-emerald-500 text-emerald-300 font-bold shadow-sm' : 'bg-[#0F0F12] border-[#1A1A1C] text-[#71717A]'}`}>
                           <div className="truncate font-mono font-bold">4. AGENDADO</div>
-                          {crmColumn === 'scheduled' && <div className="mt-1 text-[8px] sm:text-[9px] bg-emerald-500 text-black font-sans py-0.5 px-1.5 rounded-none inline-block uppercase tracking-wider">Confirmado 📅</div>}
+                          {crmColumn === 'scheduled' && (
+                            <motion.div 
+                              initial={{ scale: 0.8, opacity: 0 }}
+                              animate={{ scale: 1, opacity: 1 }}
+                              transition={SPRING_TACTILE}
+                              className="mt-1 text-[8px] sm:text-[9px] bg-emerald-500 text-black font-sans py-0.5 px-1.5 rounded-none inline-block uppercase tracking-wider"
+                            >
+                              Confirmado 📅
+                            </motion.div>
+                          )}
                         </div>
-
+ 
                       </div>
                     </div>
-
+ 
                     {/* Active Card details inside CRM */}
-                    <div className="bg-[#0F0F12] p-4 border border-[#1A1A1C] rounded-none">
+                    <div className="bg-[#0F0F12] p-4 border border-[#1A1A1C] rounded-xl">
                       <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
                         <div className="flex items-center gap-2">
                           <span className="text-xs font-bold text-white capitalize px-2 py-0.5 bg-[#121215] rounded-none border border-[#1A1A1C] font-mono tracking-tight">{simulatorCompany}</span>
@@ -974,9 +1564,9 @@ export default function Home() {
                         </div>
                       )}
                     </div>
-
+ 
                     {/* WhatsApp chat container */}
-                    <div className="border border-[#1A1A1C] rounded-none bg-[#0F0F12] overflow-hidden">
+                    <div className="border border-[#1A1A1C] rounded-xl bg-[#0F0F12] overflow-hidden">
                       <div className="bg-[#121215] border-b border-[#1A1A1C] px-4 py-3 flex items-center justify-between">
                         <div className="flex items-center gap-2">
                           <div className="h-2 w-2 rounded-full bg-emerald-500"></div>
@@ -984,40 +1574,48 @@ export default function Home() {
                         </div>
                         <span className="text-[10px] text-[#71717A] font-mono uppercase">WhatsApp Cloud API</span>
                       </div>
-
+ 
                       <div className="p-4 h-64 overflow-y-auto space-y-3 flex flex-col justify-end bg-[#0A0A0B]/60 shadow-inner">
                         {activeChatMessages.map((msg, idx) => (
-                          <div 
+                          <motion.div 
                             key={idx}
-                            className={`max-w-[85%] rounded-none px-4 py-3 text-xs leading-relaxed ${
+                            initial={{ opacity: 0, y: 15, scale: 0.96 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            transition={SPRING_TACTILE}
+                            className={`max-w-[85%] rounded-xl px-4 py-3 text-xs leading-relaxed ${
                               msg.sender === 'ai' 
                                 ? 'bg-[#C5A059]/15 text-[#E5E5E5] self-start border border-[#C5A059]/30 font-sans' 
                                 : 'bg-[#1D1D21] border border-[#2E2E33] text-neutral-200 self-end'
                             }`}
                           >
                             {msg.text}
-                          </div>
+                          </motion.div>
                         ))}
-
+ 
                         {isTyping && (
-                          <div className="bg-[#121215] text-[#C5A059] self-start text-[10px] px-3.5 py-1.5 border border-[#1A1A1C] rounded-none flex items-center gap-2 font-mono uppercase tracking-wider">
+                          <motion.div 
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={SPRING_TACTILE}
+                            className="bg-[#121215] text-[#C5A059] self-start text-[10px] px-3.5 py-1.5 border border-[#1A1A1C] rounded-xl flex items-center gap-2 font-mono uppercase tracking-wider"
+                          >
                             <span className="inline-block animate-bounce font-extrabold">.</span>
                             <span className="inline-block animate-bounce delay-100 font-extrabold">.</span>
                             <span className="inline-block animate-bounce delay-200 font-extrabold">.</span>
                             <span>IA da LF7 está redigindo</span>
-                          </div>
+                          </motion.div>
                         )}
                         
                         <div ref={chatEndRef} />
                       </div>
                     </div>
-
+ 
                     {/* Complete simulated flow block */}
                     {simulationStep === 2 && (
                       <motion.div 
                         initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-[#121215] border border-emerald-500/50 p-6 rounded-none text-center"
+                        className="bg-[#121215] border border-emerald-500/50 p-6 rounded-xl text-center"
                       >
                         <div className="h-10 w-10 bg-[#C5A059]/10 rounded-full flex items-center justify-center text-[#C5A059] mx-auto mb-3">
                           <Check className="h-5 w-5" />
@@ -1026,12 +1624,15 @@ export default function Home() {
                         <p className="text-[#A1A1AA] text-xs mt-2 max-w-lg mx-auto leading-relaxed">
                           O robô com inteligência artificial estabeleceu diálogo realista sobre <strong className="text-white font-medium">{simulatorChallenges}</strong>, demonstrou as possibilidades de venda aplicadas e cadastrou a oportunidade de reunião integrada sem intervenção humana de sua equipe.
                         </p>
-                        <button 
+                        <motion.button 
+                          whileHover={{ scale: 1.03, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
+                          whileTap={{ scale: 0.96 }}
+                          transition={SPRING_TACTILE}
                           onClick={() => scrollTo('form-leads')}
-                          className="mt-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-full text-[10px] tracking-widest uppercase transition-all"
+                          className="mt-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black font-bold px-6 py-3 rounded-full text-[10px] tracking-widest uppercase cursor-pointer"
                         >
                           Agendar Diagnóstico Gratuito 📲
-                        </button>
+                        </motion.button>
                       </motion.div>
                     )}
 
@@ -1046,7 +1647,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-5 bg-[#121215] border border-[#1A1A1C] rounded-none p-6 sm:p-8"
+                className="lg:col-span-5 bg-[#121215] border border-[#1A1A1C] rounded-xl p-6 sm:p-8"
               >
                 <div className="flex items-center gap-2 mb-4">
                   <DollarSign className="h-5 w-5 text-[#C5A059]" />
@@ -1130,22 +1731,56 @@ export default function Home() {
                   <div className="mt-8 border-t border-[#1A1A1C] pt-6 space-y-4">
                     <div className="flex justify-between text-xs">
                       <span className="text-[#A1A1AA] font-bold font-mono uppercase tracking-wider">Perda de oportunidade:</span>
-                      <span className="text-[#C5A059] font-mono font-bold">-{lossRate}% de taxa de conversão</span>
+                      <motion.span 
+                        key={lossRate}
+                        initial={{ scale: 0.95, opacity: 0.8 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                        className="text-[#C5A059] font-mono font-bold inline-block"
+                      >
+                        -{lossRate}% de taxa de conversão
+                      </motion.span>
                     </div>
                     
                     <div className="flex justify-between text-xs">
                       <span className="text-[#A1A1AA] font-bold font-mono uppercase tracking-wider">Prejuízo Financeiro Mês:</span>
-                      <span className="text-red-400 font-mono font-bold">R$ {financialLoss.toLocaleString('pt-BR')}</span>
+                      <motion.span 
+                        key={financialLoss}
+                        initial={{ scale: 0.95, opacity: 0.8 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                        className="text-red-400 font-mono font-bold inline-block"
+                      >
+                        R$ {financialLoss.toLocaleString('pt-BR')}
+                      </motion.span>
                     </div>
 
                     {/* Recuperação com LF7 */}
-                    <div className="bg-gradient-to-r from-[#0F0F12] to-[#C5A059]/10 p-5 border border-[#C5A059]/20 rounded-none">
+                    <div className="bg-gradient-to-r from-[#0F0F12] to-[#C5A059]/10 p-5 border border-[#C5A059]/20 rounded-xl">
                       <div className="text-[9px] font-mono uppercase tracking-[0.16em] text-[#C5A059] font-bold">Faturamento Recuperado • Estimado</div>
-                      <div className="text-xl sm:text-2xl font-serif text-white mt-1.5">
-                        + R$ {recoveredRevenue.toLocaleString('pt-BR')} / Mês
+                      <div className="text-xl sm:text-2xl font-serif text-white mt-1.5 overflow-hidden">
+                        <motion.span 
+                          key={recoveredRevenue}
+                          initial={{ scale: 0.95, opacity: 0.8 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                          className="inline-block"
+                        >
+                          + R$ {recoveredRevenue.toLocaleString('pt-BR')} / Mês
+                        </motion.span>
                       </div>
                       <p className="text-[11px] text-[#A1A1AA] mt-2 leading-relaxed">
-                        Reduzindo o atendimento para 3 segundos com robôs IA, estimamos a recuperação média de <strong className="text-white font-bold">{recoveredLeads} vendas mensais</strong> anteriormente perdidas no limbo.
+                        Reduzindo o atendimento para 3 segundos com robôs IA, estimamos a recuperação média de{' '}
+                        <motion.strong 
+                          key={recoveredLeads}
+                          initial={{ scale: 0.95, opacity: 0.8 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 15 }}
+                          className="text-white font-bold inline-block"
+                        >
+                          {recoveredLeads} vendas mensais
+                        </motion.strong>{' '}
+                        anteriormente perdidas no limbo.
                       </p>
                     </div>
                   </div>
@@ -1177,7 +1812,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300"
             >
               <span className="text-3xl text-[#C5A059] block mb-5">👁️</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Visão 360 do Funil</h4>
@@ -1191,7 +1826,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300"
             >
               <span className="text-3xl text-[#C5A059] block mb-5">🤖</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Higienização Inteligente</h4>
@@ -1205,7 +1840,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300"
             >
               <span className="text-3xl text-[#C5A059] block mb-5">⚡</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Velocidade Crítica</h4>
@@ -1219,7 +1854,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-none hover:border-[#C5A059]/30 transition-all duration-300"
+              className="bg-[#121215] p-8 border border-[#1A1A1C] rounded-xl hover:border-[#C5A059]/30 transition-all duration-300"
             >
               <span className="text-3xl text-[#C5A059] block mb-5">📈</span>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-2">Tom de Voz Corporativo</h4>
@@ -1248,136 +1883,148 @@ export default function Home() {
               </p>
             </div>
             <div className="flex items-center gap-3">
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.08, borderColor: 'rgba(197, 160, 89, 0.5)', color: '#E5C384' }}
+                whileTap={{ scale: 0.92 }}
+                transition={SPRING_TACTILE}
                 onClick={() => {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
                 }}
-                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all cursor-pointer hover:bg-[#121215]"
+                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 text-[#71717A] flex items-center justify-center rounded-full cursor-pointer hover:bg-[#121215]"
                 aria-label="Depoimento Anterior"
                 id="btn-prev-testimonial"
               >
                 <ChevronLeft className="h-5 w-5" />
-              </button>
-              <button 
+              </motion.button>
+              <motion.button 
+                whileHover={{ scale: 1.08, borderColor: 'rgba(197, 160, 89, 0.5)', color: '#E5C384' }}
+                whileTap={{ scale: 0.92 }}
+                transition={SPRING_TACTILE}
                 onClick={() => {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
                 }}
-                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 hover:border-[#C5A059]/40 text-[#71717A] hover:text-[#E5C384] flex items-center justify-center rounded-full transition-all cursor-pointer hover:bg-[#121215]"
+                className="w-12 h-12 border border-[#1A1A1C] bg-[#121215]/80 text-[#71717A] flex items-center justify-center rounded-full cursor-pointer hover:bg-[#121215]"
                 aria-label="Próximo Depoimento"
                 id="btn-next-testimonial"
               >
                 <ChevronRight className="h-5 w-5" />
-              </button>
+              </motion.button>
             </div>
           </div>
 
           {/* Testimonial Active Slider Card */}
-          <div 
-            className="bg-[#121215] border border-[#1A1A1C] hover:border-[#C5A059]/20 transition-all duration-300 relative rounded-none shadow-[20px_20px_0_rgba(10,10,11,0.5)]"
-            onMouseEnter={() => setAutoplayTestimonials(false)}
-            onMouseLeave={() => setAutoplayTestimonials(true)}
-          >
+          <div className="relative">
             {/* Elegant visual badge */}
-            <div className="absolute top-0 right-10 -translate-y-1/2 bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] text-black text-[9px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 shadow-lg">
+            <div className="absolute top-0 right-10 -translate-y-1/2 bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] text-black text-[9px] font-mono font-bold uppercase tracking-widest px-4 py-1.5 shadow-lg z-20">
               Resultado LF7 Automações
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12">
-              
-              {/* Highlight and client info col */}
-              <div className="lg:col-span-5 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-[#1A1A1C] flex flex-col justify-between bg-gradient-to-br from-[#121215] to-[#0A0A0B]">
-                <div>
-                  <span className="text-[#C5A059] font-mono text-[10px] uppercase tracking-widest mb-4 block">{testimonials[currentTestimonial].segment}</span>
+            <div 
+              className="bg-[#121215] border border-[#1A1A1C] hover:border-[#C5A059]/20 transition-all duration-300 relative rounded-xl shadow-[20px_20px_0_rgba(10,10,11,0.5)] overflow-hidden"
+              onMouseEnter={() => setAutoplayTestimonials(false)}
+              onMouseLeave={() => setAutoplayTestimonials(true)}
+            >
+              <AnimatePresence mode="wait">
+                <motion.div 
+                  key={currentTestimonial}
+                  initial={{ opacity: 0, x: 15 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -15 }}
+                  transition={{ duration: 0.45, ease: EASE_PREMIUM }}
+                  className="grid grid-cols-1 lg:grid-cols-12"
+                >
                   
-                  {/* Result highlighted with custom heavy text and gradient line */}
-                  <h3 className="text-2xl sm:text-3xl font-serif font-black text-white leading-tight mb-3">
-                    {testimonials[currentTestimonial].result}
-                  </h3>
-                  <p className="text-[#E5C384] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6">
-                    {testimonials[currentTestimonial].highlight}
-                  </p>
-                </div>
+                  {/* Highlight and client info col */}
+                  <div className="lg:col-span-5 p-8 sm:p-12 border-b lg:border-b-0 lg:border-r border-[#1A1A1C] flex flex-col justify-between bg-gradient-to-br from-[#121215] to-[#0A0A0B]">
+                    <div>
+                      <span className="text-[#C5A059] font-mono text-[10px] uppercase tracking-widest mb-4 block">{testimonials[currentTestimonial].segment}</span>
+                      
+                      {/* Result highlighted with custom heavy text and gradient line */}
+                      <h3 className="text-2xl sm:text-3xl font-serif font-black text-white leading-tight mb-3">
+                        {testimonials[currentTestimonial].result}
+                      </h3>
+                      <p className="text-[#E5C384] text-xs sm:text-sm font-semibold uppercase tracking-wider mb-6">
+                        {testimonials[currentTestimonial].highlight}
+                      </p>
+                    </div>
 
-                <div className="flex items-center gap-4 mt-8">
-                  <div className="relative w-14 h-14 shrink-0 border border-[#C5A059]/30 p-0.5 bg-black">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img 
-                      src={testimonials[currentTestimonial].image} 
-                      alt={testimonials[currentTestimonial].name}
-                      className="w-full h-full object-cover rounded-none grayscale"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white uppercase tracking-wider font-sans">{testimonials[currentTestimonial].name}</h4>
-                    <p className="text-xs text-[#71717A] mt-0.5">{testimonials[currentTestimonial].role}</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Quotation text and detailed review col */}
-              <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between relative bg-[#121215]/40">
-                {/* Large semi-transparent Quote icon acting as background */}
-                <Quote className="absolute right-8 bottom-8 text-[#1A1A1C] h-40 w-40 pointer-events-none z-0" strokeWidth={0.5} />
-
-                <div className="relative z-10">
-                  {/* Rating star display */}
-                  <div className="flex items-center gap-1 mb-8">
-                    {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-[#C5A059] text-[#C5A059]" />
-                    ))}
+                    <div className="flex items-center gap-4 mt-8">
+                      <div className="relative w-14 h-14 shrink-0 border border-[#C5A059]/30 p-0.5 bg-black">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img 
+                          src={testimonials[currentTestimonial].image} 
+                          alt={testimonials[currentTestimonial].name}
+                          className="w-full h-full object-cover rounded-none grayscale"
+                          referrerPolicy="no-referrer"
+                        />
+                      </div>
+                      <div>
+                        <h4 className="text-sm font-bold text-white uppercase tracking-wider font-sans">{testimonials[currentTestimonial].name}</h4>
+                        <p className="text-xs text-[#71717A] mt-0.5">{testimonials[currentTestimonial].role}</p>
+                      </div>
+                    </div>
                   </div>
 
-                  {/* AnimatePresence for smooth text transitions during slides */}
-                  <AnimatePresence mode="wait">
-                    <motion.p 
-                      key={currentTestimonial}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.3 }}
-                      className="text-[#D1D1D6] font-serif font-light text-base sm:text-lg leading-relaxed italic"
-                    >
-                      &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
-                    </motion.p>
-                  </AnimatePresence>
-                </div>
+                  {/* Quotation text and detailed review col */}
+                  <div className="lg:col-span-7 p-8 sm:p-12 flex flex-col justify-between relative bg-[#121215]/40">
+                    {/* Large semi-transparent Quote icon acting as background */}
+                    <Quote className="absolute right-8 bottom-8 text-[#1A1A1C] h-40 w-40 pointer-events-none z-0" strokeWidth={0.5} />
 
-                <div className="relative z-10 mt-10 pt-8 border-t border-[#1A1A1C] flex flex-wrap items-center justify-between gap-4">
-                  <span className="text-[10px] font-mono text-[#71717A] uppercase tracking-widest">Estudo de Caso Auditado</span>
-                  <a 
-                    href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20vi%20o%20caso%20de%20sucesso%20no%20site%20e%20gostaria%20de%20resultados%20similares%20de%20automa%C3%A7%C3%A3o%20e%20CRM!"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#C5A059] hover:text-[#E5C384] text-xs font-bold uppercase tracking-widest flex items-center gap-2 group cursor-pointer"
-                    id={`testimonial-cta-${testimonials[currentTestimonial].id}`}
-                  >
-                    Quero estes resultados
-                    <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                  </a>
-                </div>
+                    <div className="relative z-10">
+                      {/* Rating star display */}
+                      <div className="flex items-center gap-1 mb-8">
+                        {[...Array(testimonials[currentTestimonial].rating)].map((_, i) => (
+                          <Star key={i} className="h-4 w-4 fill-[#C5A059] text-[#C5A059]" />
+                        ))}
+                      </div>
 
-              </div>
+                      <p className="text-[#D1D1D6] font-serif font-light text-base sm:text-lg leading-relaxed italic">
+                        &ldquo;{testimonials[currentTestimonial].quote}&rdquo;
+                      </p>
+                    </div>
 
+                    <div className="relative z-10 mt-10 pt-8 border-t border-[#1A1A1C] flex flex-wrap items-center justify-between gap-4">
+                      <span className="text-[10px] font-mono text-[#71717A] uppercase tracking-widest">Estudo de Caso Auditado</span>
+                      <motion.a 
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        transition={SPRING_TACTILE}
+                        href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20vi%20o%20caso%20de%20sucesso%20no%20site%20e%20gostaria%20de%20resultados%20similares%20de%20automa%C3%A7%C3%A3o%20e%20CRM!"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[#C5A059] hover:text-[#E5C384] text-xs font-bold uppercase tracking-widest flex items-center gap-2 group cursor-pointer"
+                        id={`testimonial-cta-${testimonials[currentTestimonial].id}`}
+                      >
+                        <span>Quero estes resultados</span>
+                        <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </motion.a>
+                    </div>
+
+                  </div>
+
+                </motion.div>
+              </AnimatePresence>
             </div>
           </div>
 
           {/* Carousel Dot Indicators */}
           <div className="flex items-center justify-center gap-2.5 mt-8">
             {testimonials.map((_, idx) => (
-              <button
+              <motion.button
                 key={idx}
+                layout
                 onClick={() => {
                   setAutoplayTestimonials(false);
                   setCurrentTestimonial(idx);
                 }}
-                className={`h-2.5 transition-all duration-300 rounded-full cursor-pointer ${
+                className={`h-2.5 rounded-full cursor-pointer transition-colors duration-300 ${
                   currentTestimonial === idx 
                     ? 'w-8 bg-gradient-to-r from-[#C5A059] to-[#E5C384]' 
                     : 'w-2.5 bg-[#1A1A1C] hover:bg-[#71717A]/40'
                 }`}
+                transition={SPRING_PREMIUM}
                 aria-label={`Ir para o depoimento ${idx + 1}`}
                 id={`btn-dot-testimonial-${idx}`}
               />
@@ -1405,16 +2052,23 @@ export default function Home() {
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: idx * 0.05, ease: "easeOut" }}
-                className="bg-[#121215] border border-[#1A1A1C] rounded-none overflow-hidden transition-all duration-300"
+                transition={{ duration: 0.5, delay: idx * 0.05, ease: EASE_PREMIUM }}
+                whileHover={{ borderColor: 'rgba(197, 160, 89, 0.3)' }}
+                className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden transition-colors duration-300"
               >
                 <button 
                   onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                  className="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4"
+                  className="w-full px-6 py-5 sm:px-8 text-left flex items-center justify-between text-white font-semibold hover:text-[#C5A059] transition-colors gap-4 cursor-pointer"
                   id={`faq-btn-${idx}`}
                 >
                   <span className="text-sm sm:text-base font-serif text-left leading-relaxed">{item.q}</span>
-                  <ChevronDown className={`h-4 w-4 text-[#C5A059] shrink-0 transform transition-transform duration-350 ${openFaq === idx ? 'rotate-180' : ''}`} />
+                  <motion.span
+                    animate={{ rotate: openFaq === idx ? 180 : 0 }}
+                    transition={SPRING_PREMIUM}
+                    className="shrink-0 text-[#C5A059]"
+                  >
+                    <ChevronDown className="h-4 w-4" />
+                  </motion.span>
                 </button>
                 
                 <AnimatePresence initial={false}>
@@ -1423,7 +2077,10 @@ export default function Home() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: 'auto', opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.25 }}
+                      transition={{ 
+                        height: { type: 'spring', stiffness: 280, damping: 28 },
+                        opacity: { duration: 0.2, ease: 'easeInOut' }
+                      }}
                     >
                       <div className="px-6 pb-6 sm:px-8 sm:pb-6 text-[#A1A1AA] text-xs sm:text-sm leading-relaxed border-t border-[#1A1A1C] pt-4 font-sans">
                         {item.a}
@@ -1459,10 +2116,10 @@ export default function Home() {
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="bg-[#0F0F12] border border-[#1A1A1C] p-8 sm:p-12 rounded-none max-w-2xl mx-auto text-center relative overflow-hidden"
+            className="bg-[#0F0F12] border border-[#1A1A1C] p-8 sm:p-12 rounded-xl max-w-2xl mx-auto text-center relative overflow-hidden"
           >
             {/* Elegant top line gold accent */}
-            <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]"></div>
+            <div className="absolute top-px left-px right-px h-[3px] bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-[11px]"></div>
 
             <div className="mb-6">
               <span className="text-4xl">📊</span>
@@ -1473,15 +2130,28 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <a 
+              <motion.a 
+                initial="initial"
+                whileHover="hover"
+                whileTap={{ scale: 0.96 }}
+                transition={SPRING_TACTILE}
                 href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20meu%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20e%20CRM%20gratuito!"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold py-5 rounded-full text-center flex items-center justify-center gap-3 transition-all tracking-widest text-xs uppercase duration-350"
+                className="w-full bg-[#C5A059] hover:bg-[#D4AF37] text-black font-extrabold py-5 rounded-full text-center flex items-center justify-center gap-3 tracking-widest text-xs uppercase cursor-pointer"
                 id="footer-card-cta"
               >
-                <MessageSquare className="h-4 w-4 fill-black text-black shrink-0" /> Agendar Via WhatsApp
-              </a>
+                <motion.span
+                  variants={{
+                    hover: { rotate: [0, -10, 10, -10, 10, 0] }
+                  }}
+                  transition={{ duration: 0.5 }}
+                  className="flex items-center shrink-0"
+                >
+                  <MessageSquare className="h-4 w-4 fill-black text-black" />
+                </motion.span>
+                <span>Agendar Via WhatsApp</span>
+              </motion.a>
 
               <p className="text-[9px] text-[#71717A] font-mono uppercase tracking-wider">
                 Sem compromisso • Diagnóstico conduzido diretamente em 15 minutos na nossa sala virtual
@@ -1530,11 +2200,14 @@ export default function Home() {
         transition={{ delay: 1.5, duration: 0.5 }}
         className="fixed bottom-6 right-6 z-50 group"
       >
-        <a
+        <motion.a
+          whileHover={{ scale: 1.1, boxShadow: '0 0 35px rgba(37,211,102,0.7)' }}
+          whileTap={{ scale: 0.92 }}
+          transition={SPRING_TACTILE}
           href="https://wa.me/5521981062423?text=Ol%C3%A1%2C%20gostaria%20de%20fazer%20um%20diagn%C3%B3stico%20de%20automa%C3%A7%C3%A3o%20e%20falar%20com%20um%20especialista!"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_0_25px_rgba(37,211,102,0.4)] hover:shadow-[0_0_35px_rgba(37,211,102,0.7)] transition-all duration-300 hover:scale-110 active:scale-95 border border-[#25D366]/60"
+          className="relative flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full border border-[#25D366]/60 cursor-pointer"
           aria-label="Fale conosco no WhatsApp"
           id="floating-whatsapp-btn"
         >
@@ -1549,7 +2222,7 @@ export default function Home() {
           <svg className="h-7 w-7 text-white" viewBox="0 0 448 512">
             <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L3 480l117.7-30.8c32.7 17.9 69.4 27.3 107.1 27.3h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-13.6-6.8-25-10.8-40.8-24.8-12.3-11-20.6-24.5-23-28.3-2.4-3.8-.3-5.8 1.6-7.7 1.7-1.7 3.7-4.3 5.6-6.5 1.9-2.2 2.5-3.8 3.7-6.3 1.2-2.5.6-4.6-.3-6.5-1-1.9-8.8-21.2-12.1-29.1-3.2-7.8-6.5-6.7-8.9-6.8-2.3-.1-5-.1-7.6-.1-2.6 0-6.8 1-10.4 4.9-3.6 3.9-13.9 13.6-13.9 33.1s14.3 38.3 16.3 41c2.1 2.7 28.2 43.1 68.3 60.3 9.6 4.1 17.1 6.6 23 8.5 9.7 3.1 18.5 2.7 25.5 1.7 7.7-1.1 23.7-9.7 27-18.5 3.4-8.8 3.4-16.2 2.3-18-1-1.8-3.6-2.8-9.1-5.5z"/>
           </svg>
-        </a>
+        </motion.a>
       </motion.div>
 
       {/* Privacy Policy Modal overlay */}
@@ -1571,11 +2244,11 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", duration: 0.4 }}
-              className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-none shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none"
+              className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-xl shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none"
               id="privacy-modal-body"
             >
               {/* Header Gold Gradient Decor */}
-              <div className="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]" />
+              <div className="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-xl" />
               
               <div className="p-6 sm:p-10 text-left relative">
                 {/* Close X Button */}
@@ -1702,11 +2375,11 @@ export default function Home() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 15 }}
               transition={{ type: "spring", duration: 0.4 }}
-              className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-none shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none"
+              className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto bg-gradient-to-b from-[#121215] to-[#0A0A0B] border border-[#C5A059]/30 rounded-xl shadow-[0_0_50px_rgba(197,160,89,0.2)] flex flex-col focus:outline-none"
               id="terms-modal-body"
             >
               {/* Header Gold Gradient Decor */}
-              <div className="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384]" />
+              <div className="h-[4px] w-full bg-gradient-to-r from-[#886221] via-[#C5A059] to-[#E5C384] rounded-t-xl" />
               
               <div className="p-6 sm:p-10 text-left relative">
                 {/* Close X Button */}
