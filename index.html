@@ -180,7 +180,7 @@
     </div>
     
     <!-- Video opacity filter -->
-    <div class="absolute inset-0 bg-[#0A0A0B]/60 z-0 pointer-events-none"></div>
+    <div class="absolute inset-0 bg-[#0A0A0B]/75 z-0 pointer-events-none"></div>
     <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#C5A059]/5 rounded-full blur-[140px] pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -200,8 +200,8 @@
         </h1>
 
         <!-- Subheading -->
-        <p class="text-[#A1A1AA] text-base sm:text-lg md:text-xl font-light mb-12 max-w-3xl leading-relaxed reveal active delay-200">
-          Diga adeus ao vazamento de recursos. Construímos <strong class="text-white font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em 3 segundos, integrando sites de elite e campanhas corporativas focadas em ROI.
+        <p class="text-zinc-200 text-base sm:text-lg md:text-xl font-normal mb-12 max-w-3xl leading-relaxed [text-shadow:_0_2px_10px_rgba(0,0,0,0.8)] reveal active delay-200">
+          Diga adeus ao vazamento de recursos. Construímos <strong class="text-[#C5A059] font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em <strong class="text-white font-semibold">3 segundos</strong>, integrando <strong class="text-white font-semibold">sites de elite</strong> e campanhas corporativas focadas em <strong class="text-[#C5A059] font-semibold">ROI</strong>.
         </p>
 
         <!-- CTA Buttons -->
@@ -729,7 +729,7 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8" style="perspective: 1000px;">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style="perspective: 1000px;">
           
           <!-- Mockup 1: Don Giovanni -->
           <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-100 text-left" style="transform-style: preserve-3d;">
@@ -739,40 +739,56 @@
               <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
               <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">dongiovanni.netlify.app</div>
             </div>
-            <a href="https://dongiovanni.netlify.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
-              <div>
-                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
-                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
-                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                  Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
-                </p>
+            <a href="https://dongiovanni.netlify.app" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col justify-between hover:no-underline">
+              <!-- Screenshot Wrapper -->
+              <div class="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                <img src="public/mockup-dongiovanni.png" alt="Don Giovanni Mockup" class="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
               </div>
-              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
-                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              <!-- Card Details -->
+              <div class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
+                  <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
+                  <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                    Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                  <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
+                  <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+                </div>
               </div>
             </a>
           </div>
 
-          <!-- Mockup 2: Clínica Gizele Cabral -->
+          <!-- Mockup 2: Clínica Beatriz Galvão -->
           <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-200" style="transform-style: preserve-3d;">
             <div class="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
               <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
               <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
               <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
-              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-gizele-cabral.vercel.app</div>
+              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-beatriz-galvao.vercel.app</div>
             </div>
-            <a href="https://clinica-gizele-cabral.vercel.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
-              <div>
-                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
-                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Gizele Cabral • Estética</h4>
-                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                  Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
-                </p>
+            <a href="https://clinica-beatriz-galvao.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col justify-between hover:no-underline">
+              <!-- Screenshot Wrapper -->
+              <div class="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                <img src="public/mockup-beatriz.png" alt="Clínica Beatriz Galvão Mockup" class="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
               </div>
-              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
-                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              <!-- Card Details -->
+              <div class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
+                  <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Beatriz Galvão • Estética</h4>
+                  <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                    Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                  <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
+                  <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+                </div>
               </div>
             </a>
           </div>
@@ -785,17 +801,56 @@
               <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
               <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">sr-urso.vercel.app</div>
             </div>
-            <a href="https://sr-urso.vercel.app" target="_blank" rel="noopener noreferrer" class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline">
-              <div>
-                <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
-                <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
-                <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                  Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
-                </p>
+            <a href="https://sr-urso.vercel.app" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col justify-between hover:no-underline">
+              <!-- Screenshot Wrapper -->
+              <div class="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                <img src="public/mockup-urso.png" alt="Sr. Urso Mockup" class="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
               </div>
-              <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
-                <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+              <!-- Card Details -->
+              <div class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
+                  <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
+                  <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                    Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                  <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
+                  <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Mockup 4: Desentupidora J. Souza -->
+          <div class="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group transition-all duration-300 hover:-translate-y-2 hover:border-[#C5A059]/40 hover:shadow-[0_25px_40px_rgba(197,160,89,0.06)] reveal delay-300" style="transform-style: preserve-3d;">
+            <div class="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+              <div class="w-2.5 h-2.5 rounded-full bg-red-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-yellow-500/60"></div>
+              <div class="w-2.5 h-2.5 rounded-full bg-green-500/60"></div>
+              <div class="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">desentupidora-jsouza.vercel.app</div>
+            </div>
+            <a href="https://desentupidora-jsouza.vercel.app/" target="_blank" rel="noopener noreferrer" class="flex-1 flex flex-col justify-between hover:no-underline">
+              <!-- Screenshot Wrapper -->
+              <div class="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                <img src="public/mockup-jsouza.png" alt="Desentupidora J. Souza Mockup" class="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+              </div>
+              <!-- Card Details -->
+              <div class="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                <div>
+                  <span class="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Serviços Locais & Emergências</span>
+                  <h4 class="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Desentupidora J. Souza • 24h</h4>
+                  <p class="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                    Landing page de conversão acelerada com agendamento imediato de serviços de desentupimento por WhatsApp.
+                  </p>
+                </div>
+                <div class="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                  <span class="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Leads WhatsApp</span>
+                  <span class="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1 cursor-pointer">Ver Demo &rarr;</span>
+                </div>
               </div>
             </a>
           </div>

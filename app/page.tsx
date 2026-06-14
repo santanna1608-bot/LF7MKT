@@ -521,7 +521,7 @@ export default function Home() {
         </motion.div>
  
         {/* Subtle semi-transparent overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-[#0A0A0B]/60 z-0 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-[#0A0A0B]/75 z-0 pointer-events-none"></div>
  
         {/* Subtle Luxury Ambient Background lines or glow */}
         <motion.div 
@@ -565,9 +565,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ ease: EASE_PREMIUM, duration: 0.9, delay: 0.25 }}
-              className="text-[#A1A1AA] text-base sm:text-lg md:text-xl font-light mb-12 max-w-3xl leading-relaxed"
+              className="text-[#E4E4E7] text-base sm:text-lg md:text-xl font-normal [text-shadow:_0_2px_10px_rgba(0,0,0,0.8)] mb-12 max-w-3xl leading-relaxed"
             >
-              Diga adeus ao vazamento de recursos. Construímos <strong className="text-white font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em 3 segundos, integrando sites de elite e campanhas corporativas focadas em ROI.
+              Diga adeus ao vazamento de recursos. Construímos <strong className="text-[#C5A059] font-semibold">Funcionários IA 24/7</strong> que qualificam e agendam reuniões comerciais em <strong className="text-white font-semibold">3 segundos</strong>, integrando <strong className="text-white font-semibold">sites de elite</strong> e campanhas corporativas focadas em <strong className="text-[#C5A059] font-semibold">ROI</strong>.
             </motion.p>
  
             {/* CTAs */}
@@ -1197,7 +1197,7 @@ export default function Home() {
                     </p>
                   </div>
                   
-                  <motion.button 
+              <motion.button 
                     whileHover={{ scale: 1.02, boxShadow: '0 0 15px rgba(197, 160, 89, 0.3)' }}
                     whileTap={{ scale: 0.96 }}
                     transition={SPRING_TACTILE}
@@ -1223,7 +1223,7 @@ export default function Home() {
               </p>
             </div>
  
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" style={{ perspective: '1000px' }}>
               {/* Mockup 1: Don Giovanni */}
               <motion.div 
                 whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
@@ -1231,69 +1231,89 @@ export default function Home() {
                 style={{ transformStyle: 'preserve-3d' }}
                 className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
               >
-                {/* Browser bar */}
                 <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                   <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">dongiovanni.netlify.app</div>
                 </div>
-                {/* Mock Content */}
                 <a 
                   href="https://dongiovanni.netlify.app" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                  className="flex-1 flex flex-col justify-between hover:no-underline"
                 >
-                  <div>
-                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
-                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
-                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                      Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
-                    </p>
+                  {/* Screenshot Wrapper */}
+                  <div className="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                    <img 
+                      src="/mockup-dongiovanni.png" 
+                      alt="Don Giovanni Mockup" 
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                   </div>
-                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
-                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  {/* Card Details */}
+                  <div className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Gastronomia & Experiência Premium</span>
+                      <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Don Giovanni • Alta Gastronomia</h4>
+                      <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                        Design sofisticado com reservas online intuitivas e apelo visual refinado para gastronomia e hotelaria.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                      <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Reservas</span>
+                      <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                    </div>
                   </div>
                 </a>
               </motion.div>
- 
-              {/* Mockup 2: Clínica Gizele Cabral */}
+
+              {/* Mockup 2: Clínica Beatriz Galvão */}
               <motion.div 
                 whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
                 transition={SPRING_TACTILE}
                 style={{ transformStyle: 'preserve-3d' }}
                 className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
               >
-                {/* Browser bar */}
                 <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
-                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-gizele-cabral.vercel.app</div>
+                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-45 truncate">clinica-beatriz-galvao.vercel.app</div>
                 </div>
-                {/* Mock Content */}
                 <a 
-                  href="https://clinica-gizele-cabral.vercel.app" 
+                  href="https://clinica-beatriz-galvao.vercel.app/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                  className="flex-1 flex flex-col justify-between hover:no-underline"
                 >
-                  <div>
-                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
-                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Gizele Cabral • Estética</h4>
-                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                      Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
-                    </p>
+                  {/* Screenshot Wrapper */}
+                  <div className="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                    <img 
+                      src="/mockup-beatriz.png" 
+                      alt="Clínica Beatriz Galvão Mockup" 
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                   </div>
-                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
-                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  {/* Card Details */}
+                  <div className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Saúde & Estética Avançada</span>
+                      <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Clínica Beatriz Galvão • Estética</h4>
+                      <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                        Estética de elite com design suave, catálogo elegante de serviços corporais e agendamento de consultas.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                      <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Agendamento</span>
+                      <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                    </div>
                   </div>
                 </a>
               </motion.div>
- 
+
               {/* Mockup 3: Sr. Urso */}
               <motion.div 
                 whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
@@ -1301,30 +1321,85 @@ export default function Home() {
                 style={{ transformStyle: 'preserve-3d' }}
                 className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
               >
-                {/* Browser bar */}
                 <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
                   <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
                   <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">sr-urso.vercel.app</div>
                 </div>
-                {/* Mock Content */}
                 <a 
                   href="https://sr-urso.vercel.app" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between min-h-[200px] hover:no-underline"
+                  className="flex-1 flex flex-col justify-between hover:no-underline"
                 >
-                  <div>
-                    <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
-                    <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
-                    <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
-                      Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
-                    </p>
+                  {/* Screenshot Wrapper */}
+                  <div className="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                    <img 
+                      src="/mockup-urso.png" 
+                      alt="Sr. Urso Mockup" 
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
                   </div>
-                  <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
-                    <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
-                    <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                  {/* Card Details */}
+                  <div className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Beleza & Estilo de Vida</span>
+                      <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Sr. Urso Barbearia • Club Masculino</h4>
+                      <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                        Experiência digital forte e moderna, com marcação de horários integrada e catálogo de produtos.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                      <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Captar & Agendar</span>
+                      <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                    </div>
+                  </div>
+                </a>
+              </motion.div>
+
+              {/* Mockup 4: Desentupidora J. Souza */}
+              <motion.div 
+                whileHover={{ y: -8, rotateX: 1.5, rotateY: -1.5, scale: 1.01, borderColor: 'rgba(197, 160, 89, 0.4)', boxShadow: '0 25px 40px rgba(197, 160, 89, 0.06)' }}
+                transition={SPRING_TACTILE}
+                style={{ transformStyle: 'preserve-3d' }}
+                className="bg-[#121215] border border-[#1A1A1C] rounded-xl overflow-hidden flex flex-col group text-left"
+              >
+                <div className="bg-[#0F0F12] px-4 py-2.5 border-b border-[#1A1A1C] flex items-center gap-1.5 shrink-0">
+                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/60" />
+                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/60" />
+                  <div className="bg-[#1D1D21] text-[#71717A] text-[9px] font-mono px-3 py-0.5 rounded-none ml-3 w-40 truncate">desentupidora-jsouza.vercel.app</div>
+                </div>
+                <a 
+                  href="https://desentupidora-jsouza.vercel.app/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="flex-1 flex flex-col justify-between hover:no-underline"
+                >
+                  {/* Screenshot Wrapper */}
+                  <div className="relative h-44 w-full overflow-hidden bg-[#0A0A0B] border-b border-[#1A1A1C] shrink-0">
+                    <img 
+                      src="/mockup-jsouza.png" 
+                      alt="Desentupidora J. Souza Mockup" 
+                      className="w-full h-auto object-cover object-top transition-transform duration-[3000ms] ease-in-out transform group-hover:-translate-y-[20%] scale-100 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                  </div>
+                  {/* Card Details */}
+                  <div className="p-6 bg-gradient-to-b from-black to-[#0A0A0B] flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="text-[8px] font-mono text-[#C5A059] uppercase tracking-wider block mb-1">Serviços Locais & Emergências</span>
+                      <h4 className="text-sm font-serif font-bold text-white tracking-tight mb-2 leading-tight">Desentupidora J. Souza • 24h</h4>
+                      <p className="text-[10px] text-[#71717A] leading-relaxed mb-4">
+                        Landing page de conversão acelerada com agendamento imediato de serviços de desentupimento por WhatsApp.
+                      </p>
+                    </div>
+                    <div className="flex items-center justify-between border-t border-[#1A1A1C] pt-3">
+                      <span className="text-[8px] font-mono text-emerald-400 uppercase tracking-widest bg-emerald-950/40 px-2 py-0.5 border border-emerald-500/20">Foco: Leads WhatsApp</span>
+                      <span className="text-[#C5A059] text-[9px] font-bold uppercase tracking-wider group-hover:text-[#E5C384] transition-colors flex items-center gap-1">Ver Demo &rarr;</span>
+                    </div>
                   </div>
                 </a>
               </motion.div>
