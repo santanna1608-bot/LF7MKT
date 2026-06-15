@@ -351,11 +351,13 @@ export default function Home() {
             className="flex items-center gap-3 cursor-pointer" 
             onClick={() => scrollTo('hero')}
           >
-            <div className="h-9 w-9 bg-[#C5A059] flex items-center justify-center font-bold text-black text-xs tracking-wider transition-colors duration-300 hover:bg-[#D4AF37]" id="hdr-logo">
-              LF7
-            </div>
+            <img 
+              src="/logo.png" 
+              alt="LF7 Logo" 
+              className="h-9 w-auto object-contain" 
+              id="hdr-logo"
+            />
             <div className="flex flex-col">
-              <span className="text-white font-extrabold text-base leading-none tracking-tight">LF7</span>
               <span className="text-[#C5A059] font-medium text-[9px] tracking-[0.18em] uppercase mt-0.5">Marketing & IA</span>
             </div>
           </motion.div>
